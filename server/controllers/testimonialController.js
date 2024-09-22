@@ -14,29 +14,40 @@ const createTestimonial = async (req, res) => {
       console.log(result.secure_url);
     }
 
-
     const newTestimonial = new Testimonial({
-        name,
-        designation,
-        rating,
-        recommendation,
-        image,
+      name,
+      designation,
+      rating,
+      recommendation,
+      image,
     });
 
     const testimonial = await newTestimonial.save();
-    res.status(201).json(testimonial)
+    res.status(201).json(testimonial);
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }
 };
 
-const getTestimonials = async(req,res) => {
-    try {
-        const testimonials = await Testimonial.find({});
-        res.json(testimonials);
-    } catch (error) {
-        res.status(500).json({ message: "Server Error" });
+const getTestimonials = async (req, res) => {
+  try {
+    const testimonials = await Testimonial.find({});
+    res.json(testimonials);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+const deleteTestimonial = async (req, res) => {
+  try {
+    const testimonial = await Testimonial.findByIdAndDelete({
+      _id: req.params.id,
+    });
+    if (!testimonial) {
+      return res.status(404).json({ message: "Testimonial not found" });
     }
-}
-
-
+    res.json({ message: "Testimonial deleted" });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
