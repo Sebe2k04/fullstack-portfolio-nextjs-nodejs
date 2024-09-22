@@ -16,6 +16,10 @@ const testimonialSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
+    image: {
+      type: String,
+      default:"https://res.cloudinary.com/ded1o1e26/image/upload/v1726984757/2150709796_ojmxov.jpg"
+    },
     recommendation: {
       type: String,
       required: true,
