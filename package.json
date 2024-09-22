@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "@material-tailwind/react": "^2.1.10",
-    "axios": "^1.7.7",
-    "jose": "^5.9.2",
-    "react-icons": "^5.3.0",
-    "react-toastify": "^10.0.5"
-  }
-}
