@@ -16,7 +16,7 @@ const testimonialSchema = new mongoose.Schema(
       min: 1,
       max: 5,
     },
-    recommenation: {
+    recommendation: {
       type: String,
       required: true,
     },

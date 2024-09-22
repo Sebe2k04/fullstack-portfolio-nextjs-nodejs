@@ -26,15 +26,14 @@ const productSchema = new mongoose.Schema(
       type: [String],
       required: true,
     },
-    githubUrl:{
-        type: String,
-        required: true,
+    githubUrl: {
+      type: String,
+      required: true,
     },
-    LiveUrl:{
-        type: String,
-        required: true,
-    }
-
+    LiveUrl: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,
