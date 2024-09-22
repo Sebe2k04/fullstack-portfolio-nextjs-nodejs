@@ -30,4 +30,13 @@ const createTestimonial = async (req, res) => {
   }
 };
 
+const getTestimonials = async(req,res) => {
+    try {
+        const testimonials = await Testimonial.find({});
+        res.json(testimonials);
+    } catch (error) {
+        res.status(500).json({ message: "Server Error" });
+    }
+}
+
 
