@@ -117,18 +117,9 @@ const deleteProject = async (req, res) => {
 };
 
 const getProjects = async (req, res) => {
-  const {
-    search,
-    page = 1,
-    limit = 8,
-  } = req.query;
+  const { search, page = 1, limit = 8 } = req.query;
   try {
-    console.log(
-      search,
-      "s",
-      page,
-      limit
-    );
+    console.log(search, "s", page, limit);
     const query = {};
     if (search) {
       console.log("s");
@@ -146,15 +137,23 @@ const getProjects = async (req, res) => {
 };
 
 const getProjectById = async (req, res) => {
-    try {
-      const project = await Projects.findById(req.params.id);
-  
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      res.json(project);
-    } catch (error) {
-      res.status(500).json({ message: "Server Error" });
+  try {
+    const project = await Projects.findById(req.params.id);
+
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
     }
-  };
-  
+    res.json(project);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
+
+
+module.exports = {
+    createProject,
+    updateProject,
+    deleteProject,
+    getProjects,
+    getProjectById,
+}
