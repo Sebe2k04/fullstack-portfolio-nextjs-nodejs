@@ -36,3 +36,24 @@ const adminLogin = async (req, res) => {
 
   res.status(200).json({ message: "Login successful", adminToken });
 };
+
+const adminSignup = async (req, res) => {
+  const { email, password } = req.body;
+  console.log(email, password);
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const admin = new Admin({ email, password: hashedPassword });
+    console.log("admin created", admin);
+    await admin.save();
+
+    res.status(201).json({ message: "admin created", admin });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = {
+  adminLogin,
+  adminSignup,
+  adminLogout,
+};
