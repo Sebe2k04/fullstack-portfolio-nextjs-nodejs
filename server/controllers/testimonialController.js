@@ -51,3 +51,5 @@ const deleteTestimonial = async (req, res) => {
     res.status(500).json({ message: "Server Error" });
   }
 };
+
+module.exports = { createTestimonial, getTestimonials, deleteTestimonial };
