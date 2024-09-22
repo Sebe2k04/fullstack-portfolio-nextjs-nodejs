@@ -53,9 +53,9 @@ const adminSignup = async (req, res) => {
 };
 
 const adminLogout = (req, res) => {
-    res.clearCookie("adminUserToken");
-    res.json({ message: "Logout successful" });
-  };
+  res.clearCookie("adminUserToken");
+  res.json({ message: "Logout successful" });
+};
 
 module.exports = {
   adminLogin,
