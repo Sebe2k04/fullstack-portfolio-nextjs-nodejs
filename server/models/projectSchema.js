@@ -30,7 +30,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    LiveUrl: {
+    liveUrl: {
       type: String,
       required: true,
     },
