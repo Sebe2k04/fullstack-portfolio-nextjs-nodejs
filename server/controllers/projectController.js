@@ -49,15 +49,14 @@ const createProject = async (req, res) => {
 
 const updateProject = async (req, res) => {
   try {
-    const { title, subtitle, skills, description, githubUrl, liveUrl } = req.body;
+    const { title, subtitle, skills, description, githubUrl, liveUrl } =
+      req.body;
 
     const project = await Projects.findById(req.params.id);
     if (!project) {
       return res.status(404).json({ message: "Project not found" });
     }
     console.log(project.image);
-
-
 
     console.log(req.files.image);
     if (req.files.image) {
@@ -97,7 +96,6 @@ const updateProject = async (req, res) => {
     project.githubUrl = githubUrl || project.githubUrl;
     project.liveUrl = liveUrl || project.liveUrl;
 
-
     const updatedProject = await project.save();
     res.json(updatedProject);
   } catch (error) {
@@ -106,16 +104,43 @@ const updateProject = async (req, res) => {
 };
 
 const deleteProduct = async (req, res) => {
-    try {
-      const project = await Projects.findByIdAndDelete({ _id: req.params.id });
-      console.log(project);
-      if (!project) {
-        return res.status(404).json({ message: "Project not found" });
-      }
-      res.json({ message: "Project removed" });
-    } catch (error) {
-      res.status(500).json({ message: "Server Error" });
+  try {
+    const project = await Projects.findByIdAndDelete({ _id: req.params.id });
+    console.log(project);
+    if (!project) {
+      return res.status(404).json({ message: "Project not found" });
     }
-  };
+    res.json({ message: "Project removed" });
+  } catch (error) {
+    res.status(500).json({ message: "Server Error" });
+  }
+};
 
-
+const getProducts = async (req, res) => {
+  const {
+    search,
+    page = 1,
+    limit = 8,
+  } = req.query;
+  try {
+    console.log(
+      search,
+      "s",
+      page,
+      limit
+    );
+    const query = {};
+    if (search) {
+      console.log("s");
+      query.name = { $regex: search, $options: "i" };
+    }
+    const projects = await Projects.find(query)
+      .skip((page - 1) * limit)
+      .limit(Number(limit));
+    const totalProjects = await Projects.countDocuments(query);
+    const totalPages = Math.ceil(totalProjects / limit);
+    res.status(200).json({ projects, totalPages });
+  } catch (error) {
+    res.status(500).json({ message: "Error fetching products", error });
+  }
+};
