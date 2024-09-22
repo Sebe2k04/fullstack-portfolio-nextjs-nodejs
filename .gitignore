@@ -1,0 +1,12 @@
+
+/node_modules
+
+/build
+
+.env
+
+./client/.env
+./server/.env
+
+
+
