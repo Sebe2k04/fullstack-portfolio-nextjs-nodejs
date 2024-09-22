@@ -1,4 +1,6 @@
 const Projects = require("../models/projectSchema");
+const cloudinary = require("../config/cloudinary");
+
 require("dotenv").config();
 
 const createProject = async (req, res) => {
