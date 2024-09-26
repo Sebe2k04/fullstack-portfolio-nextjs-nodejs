@@ -12,7 +12,7 @@ const Navbar = () => {
   }
   return (
     <div className="">
-      <div className="fixed lg:p-5 w-full lg:px-20 p-3 ">
+      <div className="fixed lg:p-5 w-full lg:px-20 p-3 z-[100] ">
       <main className="p-5 border flex justify-between items-center rounded-2xl backdrop-blur-xl ">
         <section className="lg:pl-5">
           <div className="flex items-center relative border">
@@ -40,9 +40,11 @@ const Navbar = () => {
       </main>
     </div>
     <div className="pt-[120px]"></div>
-    <Drawer open={open} onClose={()=>toggleDrawer(false)} className="p-">
-
+    <div className="bg-white">
+    <Drawer open={open} onClose={()=>toggleDrawer(false)} >
+      <div className="block bg-white"></div>
     </Drawer>
+    </div>
     </div>
   );
 };
