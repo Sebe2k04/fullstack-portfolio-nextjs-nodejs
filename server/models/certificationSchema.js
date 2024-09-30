@@ -33,3 +33,4 @@ const Certifications = new mongoose.model(
   certificationSchema
 );
 module.exports = Certifications;
+

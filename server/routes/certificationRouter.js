@@ -33,3 +33,4 @@ router.get("/", getCertifications);
 router.get("/:id", getCertificationById);
 
 module.exports = router;
+
