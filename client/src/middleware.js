@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { adminAuth } from "./middlewares/adminAuth";
 
 export async function middleware(req, res) {
-  if (req.nextUrl.pathname.startsWith("/admin")) {
+  if (req.nextUrl.pathname.startsWith("/admin/secure")) {
     const adminResponse = await adminAuth(req);
     if (adminResponse) return adminResponse;
   }
