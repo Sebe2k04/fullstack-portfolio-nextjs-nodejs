@@ -1,12 +1,19 @@
-import React from 'react'
-import Navbar from './Navbar'
+"use client";
+import { usePathname } from "next/navigation";
+import React from "react";
+import Navbar from "./Navbar";
 
 const NavHandler = () => {
+  const path = usePathname();
   return (
     <div>
-      <Navbar/>
+      {path.startsWith("/admin")? (
+        ""
+      ) : (
+        <Navbar />
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default NavHandler
+export default NavHandler;

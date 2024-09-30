@@ -4,6 +4,9 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import NavHandler from "@/components/NavHandler";
 import { Inter } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import FooterHandler from "@/components/FooterHandler";
+
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
 //   variable: "--font-geist-sans",
@@ -26,7 +29,8 @@ export default function RootLayout({ children }) {
       <body className="inter">
         <NavHandler />
         {children}
-        <Footer/>
+        <FooterHandler/>
+        <ToastContainer/>
       </body>
     </html>
   );

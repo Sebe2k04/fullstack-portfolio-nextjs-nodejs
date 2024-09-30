@@ -1,9 +1,10 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaStar } from "react-icons/fa";
 import { IoCall, IoMail, IoSend } from "react-icons/io5";
 import { GiStarMedal } from "react-icons/gi";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import Link from "next/link";
+import { SiGmail } from "react-icons/si";
 
 const Contact = () => {
   return (
@@ -57,6 +58,17 @@ const Contact = () => {
             >
               <IoCall />
               <h1> +91 9342764956</h1>{" "}
+            </Link>
+          </div>
+          <div className="flex justify-center gap-8 pt-5 text-2xl">
+            <Link className="hover:text-orange-400 duration-200" href={"mailto:sebe2k04@gmail.com"}>
+              <SiGmail />
+            </Link>
+            <Link className="hover:text-orange-400 duration-200" href={"https://github.com/Sebe2k04"}>
+              <FaGithub />
+            </Link>
+            <Link className="hover:text-orange-400 duration-200" href={"https://www.linkedin.com/in/sebe2k04/"}>
+              <FaLinkedin />
             </Link>
           </div>
         </div>

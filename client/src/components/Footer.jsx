@@ -53,14 +53,15 @@ const Footer = () => {
                 href={"https://github.com/Sebe2k04"}
               >
                 <FaGithub />
-                <h1> linkedin/sebe2k04</h1>{" "}
+               
+                <h1> github/sebe2k04</h1>{" "}
               </Link>
               <Link
                 className="flex gap-2 items-center hover:text-white/70 duration-200"
                 href={"https://www.linkedin.com/in/sebe2k04/"}
               >
                 <FaLinkedin />
-                <h1> github/sebe2k04</h1>{" "}
+                <h1> linkedin/sebe2k04</h1>{" "}
               </Link>
               <Link
                 className="flex gap-2 items-center hover:text-white/70 duration-200"
