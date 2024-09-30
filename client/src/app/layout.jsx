@@ -1,4 +1,5 @@
 // import localFont from "next/font/local";
+import Footer from "@/components/Footer";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import NavHandler from "@/components/NavHandler";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <body className="inter">
         <NavHandler />
         {children}
+        <Footer/>
       </body>
     </html>
   );

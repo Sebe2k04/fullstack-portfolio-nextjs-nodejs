@@ -2,6 +2,7 @@ import React from "react";
 import { SiGmail } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
 
 const LinkCard = () => {
   return (
@@ -9,9 +10,15 @@ const LinkCard = () => {
       <div className="flex justify-center h-full min-h-[100px]">
         <div className="w-1 bg-black"></div>
       </div>
-      <SiGmail />
-      <FaGithub />
-      <FaLinkedin />
+      <Link href={"mailto:sebe2k04@gmail.com"}>
+        <SiGmail />
+      </Link>
+      <Link href={"https://github.com/Sebe2k04"}>
+        <FaGithub />
+      </Link>
+      <Link href={"https://www.linkedin.com/in/sebe2k04/"}>
+        <FaLinkedin />
+      </Link>
     </div>
   );
 };
