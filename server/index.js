@@ -13,6 +13,7 @@ const port = process.env.port || 5555;
 const authRouter = require("./routes/authRouter");
 const projectRouter = require("./routes/projectRouter");
 const testimonialRouter = require("./routes/testimonialRouter");
+const certificationRouter = require("./routes/certificationRouter");
 
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.json());
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use("/api/auth",authRouter);
 app.use("/api/project",projectRouter);
 app.use("/api/testimonial",testimonialRouter);
+app.use("/api/certification",certificationRouter);
 
 
 app.listen(port, () => {
