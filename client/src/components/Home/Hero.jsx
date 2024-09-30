@@ -66,12 +66,12 @@ const Hero = () => {
               <section className="">
                 <Link
                   href={"/"}
-                  className="px-5 py-2 rounded-xl text-white bg-gradient-to-br from-yellow-500 to-rose-400 font-semibold"
+                  className="px-5 py-2 rounded-xl text-white bg-gradient-to-br from-yellow-500 to-red-400 font-semibold"
                 >
                   Hire Me
                 </Link>
               </section>
-              <section className="flex gap-5 px-2 bg-gradient-to-br from-yellow-500 to-rose-400 text-transparent bg-clip-text">
+              <section className="flex gap-5 px-2 bg-gradient-to-br from-yellow-500 to-red-400 text-transparent bg-clip-text">
                 <Link
                   href={"/"}
                   className="  font-semibold flex gap-2 items-center "

@@ -17,6 +17,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { axiosInstance } from "@/utils/axiosConfig";
 import { removeCookie } from "@/actions/removeCookie";
+import { PiCertificateFill } from "react-icons/pi";
 
 const AdminNavbar = () => {
   const path = usePathname();
@@ -28,29 +29,29 @@ const AdminNavbar = () => {
   };
   const routes = [
     {
-      path: "/admin/secure/home",
-      icon: <GoHomeFill />,
-      label: "Home",
-    },
-    {
       path: "/admin/secure/dashboard",
       icon: <SiGoogleanalytics />,
       label: "Analytics",
     },
     {
-      path: "/admin/secure/products",
+      path: "/admin/secure/projects",
       icon: <FaBox />,
-      label: "Products",
+      label: "Projects",
     },
     {
-      path: "/admin/secure/users",
+      path: "/admin/secure/testimonials",
       icon: <FaUser />,
-      label: "Users",
+      label: "Testimonials",
     },
     {
-      path: "/admin/secure/categories",
+      path: "/admin/secure/certifications",
+      icon: <PiCertificateFill />,
+      label: "Certifications",
+    },
+    {
+      path: "/admin/secure/resume",
       icon: <BiSolidCategory />,
-      label: "Categories",
+      label: "Resume",
     },
     // {
     //   path: "/admin/secure/logout",
@@ -187,10 +188,7 @@ const AdminNavbar = () => {
                 </div>
               </div>
               <div className="flex justify-center items-center gap-2">
-                <FaOpencart className="text-3xl" />
-                <h1 className="text-2xl font-semibold text-center">
-                  G<span className="text-zinc-200 ">K</span>
-                </h1>
+                <h1 className="hello text-3xl ">Sebe</h1>
               </div>
             </div>
           </div>

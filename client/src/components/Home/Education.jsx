@@ -13,7 +13,7 @@ const Education = () => {
       <div className="flex flex-col pt-8 lg:px-10 ">
         <div className="">
           <div className="flex gap-3 md:items-center">
-            <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-rose-400 text-xl p-2 rounded-full text-white">
+            <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-red-400 text-xl p-2 rounded-full text-white">
               <IoReader className="" />
             </div>
             <div className="md:flex justify-between w-full items-center">
@@ -28,7 +28,7 @@ const Education = () => {
         </div>
         <div className="">
           <div className="flex gap-3 md:items-center">
-            <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-rose-400 text-xl p-2 rounded-full text-white">
+            <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-red-400 text-xl p-2 rounded-full text-white">
               <IoReader className="" />
             </div>
             <div className="md:flex justify-between w-full items-center">
@@ -43,7 +43,7 @@ const Education = () => {
         </div>
         <div className="">
           <div className="flex gap-3 md:items-center">
-            <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-rose-400 text-xl p-2 rounded-full text-white">
+            <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-red-400 text-xl p-2 rounded-full text-white">
               <IoReader className="" />
             </div>
             <div className="md:flex justify-between w-full items-center">
@@ -59,7 +59,7 @@ const Education = () => {
         
         {/* <div className="">
           <div className="flex gap-3 items-center">
-            <div className="bg-gradient-to-br from-yellow-500 to-rose-400 text-xl p-2 rounded-full text-white">
+            <div className="bg-gradient-to-br from-yellow-500 to-red-400 text-xl p-2 rounded-full text-white">
               <IoReader className="" />
             </div>
             <div className="">
