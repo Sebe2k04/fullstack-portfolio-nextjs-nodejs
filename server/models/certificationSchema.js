@@ -10,6 +10,10 @@ const certificationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    level: {
+      type: String,
+      required: true,
+    },
     skills: {
       type: [String],
       required: true,
@@ -33,4 +37,3 @@ const Certifications = new mongoose.model(
   certificationSchema
 );
 module.exports = Certifications;
-

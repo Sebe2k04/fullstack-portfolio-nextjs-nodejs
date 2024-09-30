@@ -4,7 +4,7 @@ const Certifications = require("../models/certificationSchema");
 require("dotenv").config();
 
 const createCertification = async (req, res) => {
-  const { name, provider, skills, url } = req.body;
+  const { name, provider, skills, url, level } = req.body;
   try {
     let image;
     if (req.file) {
@@ -19,6 +19,7 @@ const createCertification = async (req, res) => {
       provider,
       skills,
       url,
+      level,
       image,
     });
     console.log(newCertification);
@@ -31,9 +32,9 @@ const createCertification = async (req, res) => {
 
 const updateCertification = async (req, res) => {
   try {
-    const { name, provider, skills, url } = req.body;
+    const { name, provider, skills, url, level } = req.body;
 
-    console.log(title, subtitle, skills, description, githubUrl, liveUrl);
+    console.log(name, provider, skills, url, level);
     const certification = await Certifications.findById(req.params.id);
     if (!certification) {
       return res.status(404).json({ message: "Certification not found" });
@@ -54,9 +55,9 @@ const updateCertification = async (req, res) => {
 
     certification.name = name || certification.name;
     certification.skills = skills || certification.skills;
-    certification.provider = provider || certification.provider
-    certification.url = url || certification.url
-
+    certification.provider = provider || certification.provider;
+    certification.url = url || certification.url;
+    certification.level = level || certification.level;
 
     const updatedCertification = await certification.save();
     res.json(updatedCertification);
@@ -67,7 +68,9 @@ const updateCertification = async (req, res) => {
 
 const deleteCertification = async (req, res) => {
   try {
-    const certification = await Certifications.findByIdAndDelete({ _id: req.params.id });
+    const certification = await Certifications.findByIdAndDelete({
+      _id: req.params.id,
+    });
     console.log(certification);
     if (!certification) {
       return res.status(404).json({ message: "Certification not found" });
@@ -87,7 +90,14 @@ const getCertifications = async (req, res) => {
       console.log("s");
       query.title = { $regex: search, $options: "i" };
     }
+    const levelOrder = {
+      advanced: 1,
+      intermediate: 2,
+      basic: 3,
+    };
+
     const certifications = await Certifications.find(query)
+      .sort((a, b) => levelOrder[a.level] - levelOrder[b.level])
       .skip((page - 1) * limit)
       .limit(Number(limit));
     const totalCertifications = await Certifications.countDocuments(query);
@@ -112,10 +122,9 @@ const getCertificationById = async (req, res) => {
 };
 
 module.exports = {
-    createCertification,
-    updateCertification,
-    deleteCertification,
-    getCertifications,
-    getCertificationById
+  createCertification,
+  updateCertification,
+  deleteCertification,
+  getCertifications,
+  getCertificationById,
 };
-
