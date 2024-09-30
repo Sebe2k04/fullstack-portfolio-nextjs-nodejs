@@ -111,7 +111,7 @@ export default function Page() {
             <IoIosArrowBack />
           </Link>
 
-          <h1 className="text-xl font-semibold">Create Product</h1>
+          <h1 className="text-xl font-semibold">Create Project</h1>
         </div>
         <div className="flex justify-center lg:block pt-5 lg:pt-0">
           <Link

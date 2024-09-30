@@ -52,6 +52,7 @@ const updateProject = async (req, res) => {
     const { title, subtitle, skills, description, githubUrl, liveUrl } =
       req.body;
 
+    console.log(title, subtitle, skills, description, githubUrl, liveUrl);
     const project = await Projects.findById(req.params.id);
     if (!project) {
       return res.status(404).json({ message: "Project not found" });
@@ -123,7 +124,7 @@ const getProjects = async (req, res) => {
     const query = {};
     if (search) {
       console.log("s");
-      query.name = { $regex: search, $options: "i" };
+      query.title = { $regex: search, $options: "i" };
     }
     const projects = await Projects.find(query)
       .skip((page - 1) * limit)
@@ -149,11 +150,10 @@ const getProjectById = async (req, res) => {
   }
 };
 
-
 module.exports = {
-    createProject,
-    updateProject,
-    deleteProject,
-    getProjects,
-    getProjectById,
-}
+  createProject,
+  updateProject,
+  deleteProject,
+  getProjects,
+  getProjectById,
+};

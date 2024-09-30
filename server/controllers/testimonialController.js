@@ -30,9 +30,14 @@ const createTestimonial = async (req, res) => {
 };
 
 const getTestimonials = async (req, res) => {
+  const { page = 1, limit = 8 } = req.query;
   try {
-    const testimonials = await Testimonial.find({});
-    res.json(testimonials);
+    const testimonials = await Testimonial.find()
+      .skip((page - 1) * limit)
+      .limit(Number(limit));
+    const totalTestimonials = testimonials.length;
+    const totalPages = Math.ceil(totalTestimonials / limit);
+    res.status(200).json({ testimonials, totalPages });
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
   }

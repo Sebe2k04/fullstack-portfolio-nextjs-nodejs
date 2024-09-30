@@ -17,7 +17,7 @@ router.post(
   adminAuthMiddleWare,
   upload.fields([
     { name: "image", maxCount: 1 },
-    { name: "additionalImages", maxCount: 5 },
+    { name: "additionalImages", maxCount: 2 },
   ]),
   createProject
 );
@@ -27,7 +27,7 @@ router.put(
   adminAuthMiddleWare,
   upload.fields([
     { name: "image", maxCount: 1 },
-    { name: "additionalImages", maxCount: 3 },
+    { name: "additionalImages", maxCount: 2 },
   ]),
   updateProject
 );
