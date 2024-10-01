@@ -65,7 +65,9 @@ export default function Page() {
     const formdata = new FormData();
     formdata.append("title", title);
     formdata.append("subtitle", subtitle);
-    formdata.append("skills", skills);
+    for (let i = 0; i < skills.length; i++) {
+      formdata.append("skills", skills[i]);
+    }
     formdata.append("description", description);
     formdata.append("githubUrl", githubUrl);
     formdata.append("liveUrl", liveUrl);
@@ -230,7 +232,8 @@ export default function Page() {
           </div>
           <div className="grid gap-3">
             <label className=" text-sm font-medium text-gray-700">
-              Github Url <span className="text-black">(Not Available - mention NA)</span>
+              Github Url{" "}
+              <span className="text-black">(Not Available - mention NA)</span>
             </label>
             <input
               type="text"
@@ -241,7 +244,8 @@ export default function Page() {
           </div>
           <div className="grid gap-3">
             <label className=" text-sm font-medium text-gray-700">
-              Live Url <span className="text-black">(Not Available - mention NA)</span>
+              Live Url{" "}
+              <span className="text-black">(Not Available - mention NA)</span>
             </label>
             <input
               type="text"

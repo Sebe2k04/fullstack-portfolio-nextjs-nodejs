@@ -24,6 +24,9 @@ export default function Home() {
       <Skills/>
       <Testimonials/>
       <Contact/>
+      <div className="flex justify-center py-12 lg:px-20 px-8">
+      <iframe src="https://github.com/sponsors/Sebe2k04/card" title="Sponsor Sebe2k04"  className="max-w-[600px] lg:min-w-[600px] object-contain min-h-[200px] min-w-[300px]"></iframe>
+      </div>
       {/* <Footer/> */}
     </main>
   );

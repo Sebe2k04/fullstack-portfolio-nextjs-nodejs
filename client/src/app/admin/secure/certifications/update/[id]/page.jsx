@@ -84,7 +84,11 @@ export default function Page() {
     const formdata = new FormData();
     formdata.append("name", name);
     formdata.append("provider", provider);
-    formdata.append("skills", skills);
+
+    for(let i=0;i<skills.length;i++) {
+      formdata.append("skills", skills[i]);
+    }
+
     formdata.append("level", level);
     formdata.append("url", url);
 
@@ -229,7 +233,6 @@ export default function Page() {
               type="file"
               name="image"
               id="image"
-              required
               accept="image/*"
               onChange={(e) => setImage(e.target.files[0])}
               className="file:bg-gray-50 file:px-5 file:py-2 file:rounded-md file:border file:border-gray-200 lg:file:mr-10 file:mr-5"

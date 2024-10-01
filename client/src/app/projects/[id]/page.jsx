@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { BsGlobe2 } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 export default function Page() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ export default function Page() {
         setCurrentImage(res.data.image);
       } catch (error) {
         console.log(error);
-        toastr.error("Error fetching Project");
+        toast.error("Error fetching Project");
       }
     };
     fetchProject();
@@ -50,14 +51,13 @@ export default function Page() {
             <div className="py-5">
               <h1 className="text-2xl font-semibold">{project.title}</h1>
               <h2 className="text-gray-400 ">{project.subtitle}</h2>
-              <div className="py-5">
+              <div className="py-5 flex flex-wrap gap-3">
                 {project.skills.map((skill, i) => {
                   return (
-                    <div key={i} className={`${skill.color}`}>
+                    <div key={i}>
                       <div className="w-fit h-fit border border-b-4 text-3xl md:text-5xl rounded-2xl px-3 py-1 ">
-                        {skill.icon}
+                        <h1 className="text-center text-sm pt-2">{skill}</h1>
                       </div>
-                      <h1 className="text-center text-sm pt-2">{skill.name}</h1>
                     </div>
                   );
                 })}
@@ -70,6 +70,7 @@ export default function Page() {
                   </div>
                 ) : (
                   <Link
+                  target="_blank"
                     href={project.liveUrl}
                     className="flex items-center gap-2 bg-gray-200 rounded-xl px-5 py-2"
                   >
@@ -84,6 +85,7 @@ export default function Page() {
                   </div>
                 ) : (
                   <Link
+                  target="_blank"
                     href={project.githubUrl}
                     className="flex items-center gap-2 bg-gray-200 rounded-xl px-5 py-2"
                   >

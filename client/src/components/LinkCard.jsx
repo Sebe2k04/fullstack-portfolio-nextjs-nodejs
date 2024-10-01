@@ -10,13 +10,13 @@ const LinkCard = () => {
       <div className="flex justify-center h-full min-h-[100px]">
         <div className="w-1 bg-black"></div>
       </div>
-      <Link href={"mailto:sebe2k04@gmail.com"}>
+      <Link target="_blank" href={"mailto:sebe2k04@gmail.com"}>
         <SiGmail />
       </Link>
-      <Link href={"https://github.com/Sebe2k04"}>
+      <Link target="_blank" href={"https://github.com/Sebe2k04"}>
         <FaGithub />
       </Link>
-      <Link href={"https://www.linkedin.com/in/sebe2k04/"}>
+      <Link target="_blank" href={"https://www.linkedin.com/in/sebe2k04/"}>
         <FaLinkedin />
       </Link>
     </div>

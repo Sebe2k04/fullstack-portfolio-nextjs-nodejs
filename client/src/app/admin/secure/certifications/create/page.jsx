@@ -58,7 +58,9 @@ export default function Page() {
     const formdata = new FormData();
     formdata.append("name", name);
     formdata.append("provider", provider);
-    formdata.append("skills", skills);
+    for (let i = 0; i < skills.length; i++) {
+      formdata.append("skills", skills[i]);
+    }
     formdata.append("level", level);
     formdata.append("url", url);
     formdata.append("image", image);

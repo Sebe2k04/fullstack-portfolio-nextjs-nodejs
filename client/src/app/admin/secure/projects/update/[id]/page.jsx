@@ -97,7 +97,9 @@ export default function Page() {
     const formdata = new FormData();
     formdata.append("title", title);
     formdata.append("subtitle", subtitle);
-    formdata.append("skills", skills);
+    for (let i = 0; i < skills.length; i++) {
+      formdata.append("skills", skills[i]);
+    }
     formdata.append("description", description);
     formdata.append("githubUrl", githubUrl);
     formdata.append("liveUrl", liveUrl);
@@ -112,7 +114,6 @@ export default function Page() {
         formdata.append("additionalImages", additionalImages[i]);
       }
     }
-
 
     try {
       const res = await axiosInstance.put(`/project/${id}`, formdata, {

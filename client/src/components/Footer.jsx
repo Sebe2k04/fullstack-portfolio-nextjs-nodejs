@@ -42,6 +42,7 @@ const Footer = () => {
             <h1 className="font-semibold text-xl">Contact</h1>
             <div className="grid gap-2 text-sm pt-2">
               <Link
+              target="_blank"
                 className="flex gap-2 items-center hover:text-white/70 duration-200"
                 href={"mailto:sebe2k04@gmail.com"}
               >
@@ -49,6 +50,7 @@ const Footer = () => {
                 <h1> sebe2k04@gmail.com</h1>{" "}
               </Link>
               <Link
+              target="_blank"
                 className="flex gap-2 items-center hover:text-white/70 duration-200"
                 href={"https://github.com/Sebe2k04"}
               >
@@ -57,6 +59,7 @@ const Footer = () => {
                 <h1> github/sebe2k04</h1>{" "}
               </Link>
               <Link
+              target="_blank"
                 className="flex gap-2 items-center hover:text-white/70 duration-200"
                 href={"https://www.linkedin.com/in/sebe2k04/"}
               >
@@ -64,6 +67,7 @@ const Footer = () => {
                 <h1> linkedin/sebe2k04</h1>{" "}
               </Link>
               <Link
+              target="_blank"
                 className="flex gap-2 items-center hover:text-white/70 duration-200"
                 href={"tel:+919342764956"}
               >

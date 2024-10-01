@@ -1,5 +1,9 @@
 "use client"
+import { axiosInstance } from '@/utils/axiosConfig';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import { toast } from 'react-toastify';
+import CertificationCard from '../CertificationCard';
 
 const Certifications = () => {
   const [certifications, setCertifications] = useState([]);
@@ -32,7 +36,7 @@ const Certifications = () => {
           certifications.map((certification,index)=>{
             return(
               <div key={index}>
-                <ProjectCard certification={certification}/>
+                <CertificationCard certification={certification}/>
               </div>
             )
           })

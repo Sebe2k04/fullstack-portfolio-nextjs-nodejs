@@ -27,30 +27,21 @@ import Projects from "@/components/Home/Projects";
 
 export default function Page() {
   const {
-    projects,
-    setProjects,
-    searchTerm,
-    setSearchTerm,
     pagination,
     setPagination,
   } = useGlobalContext();
 
-  const [openView, setOpenView] = useState(false);
+  const [testimonials,setTestimonials] = useState([]);
   const [project, setProject] = useState("");
   const [deleteId, setDeleteId] = useState("");
   const [openDelete, setOpenDelete] = useState(false);
   const [modified, setModified] = useState(false);
-  const [currentImage, setCurrentImage] = useState("");
 
   const [PaginatedValue, SetPaginatedValue] = useState(1);
 
   const [loading, setLoading] = useState(true);
 
-  const handleOpenView = (data) => {
-    setProject(data);
-    setOpenView(!openView);
-    setCurrentImage(data.image);
-  };
+
   const handleOpenDelete = (id) => {
     setDeleteId(id);
     setOpenDelete(!openDelete);
@@ -63,10 +54,10 @@ export default function Page() {
     try {
       const res = await axiosInstance.delete(`/testimonial/${deleteId}`);
       console.log(res.data);
-      toast.success("Product Removed");
+      toast.success("Testimonial Removed");
       setModified(true);
     } catch (error) {
-      toast.error("Error Removing Product");
+      toast.error("Error Removing Testimonial");
       console.error(error);
     }
   };
@@ -87,11 +78,11 @@ export default function Page() {
         const res = await axiosInstance.get(`/testimonial?${query}`);
         console.log(res.data);
 
-        setProjects(res.data.projects);
+        setTestimonials(res.data.testimonials);
         SetPaginatedValue(res.data.totalPages);
         setLoading(false);
       } catch (error) {
-        toast.error("Error fetching Product");
+        toast.error("Error fetching Testimonial");
         console.error(error);
       }
     };
@@ -99,165 +90,15 @@ export default function Page() {
       setLoading(true);
       await fetchTestimonials();
     };
-  }, [searchTerm, modified, pagination]);
+  }, [ modified, pagination]);
 
-  console.log(projects);
+  console.log(testimonials);
   useEffect(() => {
     memoizedData();
   }, [memoizedData]);
   return (
     <div className="lg:px-10 px-8 py-8 lg:pt-8 pt-24">
-      {/* <Dialog
-        className="bg-gray-100 h-[80vh] p-5"
-        open={openView}
-        handler={handleOpenView}
-      >
-        <DialogHeader>
-          <div className="flex w-full justify-between gap-20">
-            <h1>View</h1>
-            <div
-              onClick={() => setOpenView(!openView)}
-              className="flex gap-2 items-center bg-black text-white px-3 py-1 rounded-md"
-            >
-              <h1 className="text-sm">Close</h1>
-            </div>
-          </div>
-        </DialogHeader>
-        <DialogBody>
-          <div className="relative h-[60vh] overflow-y-scroll text-black px-5">
-            {project ? (
-              <div className="pt-5 ">
-                <div className="grid  gap-5 ">
-                  <div className="grid grid-cols-1  gap-5">
-                    <div className="flex  order-2  justify-center">
-                      <div className="grid  place-items-start grid-cols-3  gap-5 py-2 ">
-                        {project?.additionalImages.map((image, index) => (
-                          <div
-                            onClick={() => setCurrentImage(image)}
-                            key={index}
-                            className="mx-auto max-w-[80px] max-h-[80px] relative"
-                          >
-                            <img
-                              src={image}
-                              alt=""
-                              className="rounded-md max-w-[100px] max-h-[100px] aspect-square mx-auto object-cover "
-                            />
-                          </div>
-                        ))}
-                        <img
-                          src={project.image}
-                          onClick={() => setCurrentImage(project.image)}
-                          alt=""
-                          className="rounded-md mx-auto object-cover max-h-[100px] max-w-[100px] aspect-square"
-                        />
-                      </div>
-                    </div>
-                    <div className="md:col-span-3  order-1">
-                      <img
-                        src={currentImage}
-                        alt=""
-                        className="rounded-md w-full max-h-[400px] lg:max-h-full lg:w-full object-cover duration-200 "
-                      />
-                    </div>
-                  </div>
-                  <div className="pt-5 flex flex-col justify-between ">
-                    <div className="flex gap-2 items-center">
-                      <SiHomeassistantcommunitystore className="text-xl" />
-                      <h1 className="uppercase">{project.vendor}</h1>
-                    </div>
-                    <div className="pt-5">
-                      <h1 className="font-semibold lg:text-4xl text-3xl">
-                        {project.name}
-                      </h1>
-                      <h1 className="capitalize text-gray-400 lg:text-lg md:text-md text-sm">
-                        {project.category}
-                      </h1>
-                      <h1>&#9733;&#9733;&#9733;&#9733;&#9733;</h1>
-                    </div>
-                    <div className="py-5 ">
-                      <h1 className="text-3xl font-semibold">
-                        &#8377; {project.sellingPrice}
-                      </h1>
-                      <div className="line-through text-gray-400">
-                        <h1 className="pt-1">&#8377; {product.MRPprice}</h1>
-                      </div>
-                    </div>
-                    <div className="">
-                      <div className="flex gap-2 items-center">
-                        <h1 className="text-gray-400 text-sm">
-                          Available Stock : {product.quantity} nos
-                        </h1>
-                      </div>
-                      <div className="">
-                        <h1 className="text-gray-400 text-sm">
-                          Product Code : {product._id}
-                        </h1>
-                      </div>
-                    </div>
-                    <div className="">
-                      <h1
-                        className={
-                          product.trend
-                            ? "px-3 py-1 bg-gray-200 rounded-md w-fit"
-                            : "text-gray-400 line-through"
-                        }
-                      >
-                        Trending Product
-                      </h1>
-                      <div
-                        className={
-                          product.offer
-                            ? "flex items-center gap-2 pt-2"
-                            : "text-gray-400 line-through pt-2 flex items-center gap-2"
-                        }
-                      >
-                        <BiSolidOffer className="text-xl" />
-                        <h1 className="pt-1">Offers available</h1>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-                <div className="pt-10">
-                  <div className="">
-                    <h1 className="text-2xl font-semibold">Description</h1>
-                    <h3 className="text-justify pt-3">{product.description}</h3>
-                  </div>
-                </div>
-              </div>
-            ) : (
-              ""
-            )}
-            <div className="flex justify-center capitalize pt-10 text-gray-400">
-              <div className="">
-                <h1 className="text-center">
-                  A product of{" "}
-                  <span>
-                    <Link
-                      href={"https://sebe2k04.vercel.app/"}
-                      about="_blank"
-                      className="px-1 text-black "
-                    >
-                      {" "}
-                      Sebe{" "}
-                    </Link>
-                  </span>{" "}
-                  | GenRio
-                </h1>
-                <div className="flex justify-center gap-5 text-black text-2xl pt-5">
-                  <Link href={"https://www.linkedin.com/in/sebe2k04/"}>
-                    <FaLinkedin />
-                  </Link>
-                  <Link href={"https://github.com/Sebe2k04"}>
-                    <FaGithub />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </DialogBody>
-        <DialogFooter></DialogFooter>
-      </Dialog> */}
+     
 
       <Dialog
         className="bg-gray-100 w-[200px]"
@@ -307,7 +148,7 @@ export default function Page() {
         <Loader />
       ) : (
         <div className="py-5">
-          {projects && (
+          {testimonials && (
             <div className="w-full overflow-x-scroll pb-20">
               <table className="table-auto w-full">
                 <thead>
@@ -323,27 +164,27 @@ export default function Page() {
                 </thead>
 
                 <tbody>
-                  {projects.map((project) => (
+                  {testimonials.map((testimonial) => (
                     <tr key={project._id}>
                       <td className="px-5 text-center py-3 flex justify-center">
                         <img
-                          src={project.image}
-                          alt={project.name}
+                          src={testimonial.image}
+                          alt={testimonial.name}
                           className="max-w-[100px] max-h-[100px] aspect-square object-cover rounded-md"
                         />
                       </td>
-                      <td className="px-5 text-center py-3">{project.name}</td>
+                      <td className="px-5 text-center py-3">{testimonial.name}</td>
                       <td className="px-5 text-center py-3">
-                        {project.designation}
+                        {testimonial.designation}
                       </td>
                       <td className="px-5 text-center py-3">
-                        {project.rating}
+                        {testimonial.rating}
                       </td>
                       <td className="px-5 text-center py-3">
-                        {project.recommendation}
+                        {testimonial.recommendation}
                       </td>
                       <td className="px-5 text-center py-3">
-                        {new Date(project.createdAt).toLocaleString()}
+                        {new Date(testimonial.createdAt).toLocaleString()}
                       </td>
                       <td className="px-5 text-center py-3">
                         <div className="flex justify-center">
@@ -355,17 +196,11 @@ export default function Page() {
                               <div className="container bg-white px-5 pt-3 pb-1 w-full shadow-lg rounded-xl ">
                                 <div className=" min-w-fit text-sm bg-white">
                                   <ul>
-                                    <li className="mb-2 hover:text-black cursor-pointer">
-                                      <h1
-                                        onClick={() => handleOpenView(project)}
-                                      >
-                                        View
-                                      </h1>
-                                    </li>
+                                    
                                     <li className="mb-2 hover:text-black">
                                       <h1
                                         onClick={() =>
-                                          handleOpenDelete(project._id)
+                                          handleOpenDelete(testimonial._id)
                                         }
                                       >
                                         Delete

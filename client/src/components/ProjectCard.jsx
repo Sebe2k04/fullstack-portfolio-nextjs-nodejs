@@ -26,6 +26,7 @@ const ProjectCard = ({ project }) => {
             </div>
           ) : (
             <Link
+            target="_blank"
               href={project.liveUrl}
               className="p-1 bg-gray-300 rounded-full"
             >
@@ -38,6 +39,7 @@ const ProjectCard = ({ project }) => {
             </div>
           ) : (
             <Link
+            target="_blank"
               href={project.githubUrl}
               className="p-1 bg-gray-300 rounded-full"
             >
