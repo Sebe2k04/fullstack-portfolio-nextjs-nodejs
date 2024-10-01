@@ -6,7 +6,7 @@ import { BsGlobe2 } from "react-icons/bs";
 const CertificationCard = ({ certification }) => {
   return (
     <div className="p-1 rounded-xl bg-gray-200">
-      <div className="rounded-xl backdrop-blur-md bg-white border max-w-[400px] pt-5">
+      <div className="rounded-xl backdrop-blur-md bg-white border max-w-[300px] md:max-w-[400px] pt-5">
         <div className="px-5">
           <Image
             src={certification.image}

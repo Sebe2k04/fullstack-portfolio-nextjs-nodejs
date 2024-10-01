@@ -222,7 +222,7 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <section className=" overflow-hidden w-full pb-10 text-center py-5">
+        <section className=" overflow-hidden w-full pb-14 text-center py-5 ">
           <Marquee pauseOnClick>
             {testimonials &&
               testimonials.map((testimonial, index) => {

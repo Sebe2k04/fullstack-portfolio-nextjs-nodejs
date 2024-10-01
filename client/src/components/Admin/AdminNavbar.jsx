@@ -100,11 +100,11 @@ const AdminNavbar = () => {
             </nav>
           </main>
         </div>
-        <Drawer open={open} onClose={toggleDrawer(false)}>
+        <Drawer open={open} onClose={()=>toggleDrawer(false)}>
           <section className="flex flex-col justify-between w-full min-w-[250px] min-h-[100vh] px-10">
             <div className="">
               <div className="flex justify-end pt-10">
-                <IoMdClose className="text-4xl" onClick={toggleDrawer(false)} />
+                <IoMdClose className="text-4xl" onClick={()=>toggleDrawer(false)} />
               </div>
               <div className="flex justify-center pt-10 font-bold text-2xl ec tracking-[5px]">
                 <h1>Menu</h1>

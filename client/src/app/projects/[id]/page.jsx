@@ -56,7 +56,7 @@ export default function Page() {
                   return (
                     <div key={i}>
                       <div className="w-fit h-fit border border-b-4 text-3xl md:text-5xl rounded-2xl px-3 py-1 ">
-                        <h1 className="text-center text-sm pt-2">{skill}</h1>
+                        <h1 className="text-center text-sm ">{skill}</h1>
                       </div>
                     </div>
                   );
