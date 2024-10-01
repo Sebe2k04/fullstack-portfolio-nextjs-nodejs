@@ -184,7 +184,7 @@ export default function Page() {
               <input
                 type="text"
                 required
-                value={title}
+                value={subtitle}
                 onChange={(e) => setSubtitle(e.target.value)}
                 className=" w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-gray-600 sm:text-sm"
               />
