@@ -43,7 +43,7 @@ const Navbar = () => {
             </div>
           </section>
           <section className="lg:flex hidden gap-8 font-semibold  rounded-2xl">
-            {routes.map((route,index) => (
+            {routes.map((route, index) => (
               <Link key={index} href={route.path}>
                 {route.label}
               </Link>
@@ -51,7 +51,7 @@ const Navbar = () => {
           </section>
           <section className="lg:block hidden">
             <Link
-              href={"/"}
+              href={"/#contact"}
               className="px-5 py-2 rounded-xl text-white bg-black font-semibold"
             >
               Hire Me
@@ -68,7 +68,10 @@ const Navbar = () => {
           <section className="flex flex-col justify-between w-full min-w-[250px] min-h-[100vh] px-10">
             <div className="">
               <div className="flex justify-end pt-10">
-                <IoMdClose className="text-4xl" onClick={()=>toggleDrawer(false)} />
+                <IoMdClose
+                  className="text-4xl"
+                  onClick={() => toggleDrawer(false)}
+                />
               </div>
               <div className="flex justify-center pt-10 font-bold text-2xl ec tracking-[5px]">
                 <h1>Menu</h1>
@@ -95,7 +98,12 @@ const Navbar = () => {
                     </Link>
                   );
                 })}
-               
+                <Link
+                  href={"/#contact"}
+                  className="px-5 py-2 rounded-xl text-white bg-black font-semibold"
+                >
+                  Hire Me
+                </Link>
               </div>
             </div>
             <div className="bottom flex align-bottom text-black pb-10 justify-center  pt-10">

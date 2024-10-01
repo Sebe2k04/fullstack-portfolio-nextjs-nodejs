@@ -5,6 +5,7 @@ import { GiStarMedal } from "react-icons/gi";
 import { AiFillSafetyCertificate } from "react-icons/ai";
 import Link from "next/link";
 import { SiGmail } from "react-icons/si";
+import { SiGoogledocs } from "react-icons/si";
 
 const Contact = () => {
   return (
@@ -19,7 +20,18 @@ const Contact = () => {
           </h1>
         </div>
         <div className="">
-          <div className="mt-5 flex justify-center">
+          <div className="py-5 flex justify-center">
+            <Link
+              href={"/resume"}
+              className="flex gap-3 items-center hover:bg-orange-100 duration-200 p-1 border-2  rounded-3xl"
+            >
+              <div className="bg-orange-200 text-orange-600 p-2 rounded-full">
+                <SiGoogledocs />
+              </div>
+              <h1 className="pr-5 font-semibold text-sm">Resume</h1>
+            </Link>
+          </div>
+          <div className=" flex justify-center">
             <div className="md:min-w-[450px] min-w-full  ">
               <div className="flex p-2 items-center border rounded-full justify-between">
                 <div className="flex gap-3 items-center">
@@ -61,13 +73,22 @@ const Contact = () => {
             </Link>
           </div>
           <div className="flex justify-center gap-8 pt-5 text-2xl">
-            <Link className="hover:text-orange-400 duration-200" href={"mailto:sebe2k04@gmail.com"}>
+            <Link
+              className="hover:text-orange-400 duration-200"
+              href={"mailto:sebe2k04@gmail.com"}
+            >
               <SiGmail />
             </Link>
-            <Link className="hover:text-orange-400 duration-200" href={"https://github.com/Sebe2k04"}>
+            <Link
+              className="hover:text-orange-400 duration-200"
+              href={"https://github.com/Sebe2k04"}
+            >
               <FaGithub />
             </Link>
-            <Link className="hover:text-orange-400 duration-200" href={"https://www.linkedin.com/in/sebe2k04/"}>
+            <Link
+              className="hover:text-orange-400 duration-200"
+              href={"https://www.linkedin.com/in/sebe2k04/"}
+            >
               <FaLinkedin />
             </Link>
           </div>

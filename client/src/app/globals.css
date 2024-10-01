@@ -11,6 +11,10 @@
   src: url(/fonts/Hello.ttf);
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 .hello {
   font-family: hello;
 }

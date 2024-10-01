@@ -27,13 +27,13 @@ const Footer = () => {
               <Link className="hover:text-white/70 duration-200" href={"/"}>
                 Home
               </Link>
-              <Link className="hover:text-white/70 duration-200" href={"/"}>
+              <Link className="hover:text-white/70 duration-200" href={"/#services"}>
                 Services
               </Link>
-              <Link className="hover:text-white/70 duration-200" href={"/"}>
+              <Link className="hover:text-white/70 duration-200" href={"/#skills"}>
                 Skills
               </Link>
-              <Link className="hover:text-white/70 duration-200" href={"/"}>
+              <Link className="hover:text-white/70 duration-200" href={"/#projects"}>
                 Projects
               </Link>
             </div>

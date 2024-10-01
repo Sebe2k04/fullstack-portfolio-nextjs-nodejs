@@ -65,7 +65,7 @@ const Hero = () => {
             <div className="flex gap-2 mt-5 items-center border-2 py-4 px-3 border-yellow-200 rounded-3xl backdrop-blur-md w-fit  shadow-red-300 shadow-inner">
               <section className="">
                 <Link
-                  href={"/"}
+                  href={"/#contact"}
                   className="px-5 py-2 rounded-xl text-white bg-gradient-to-br from-yellow-500 to-red-400 font-semibold"
                 >
                   Hire Me
@@ -73,7 +73,7 @@ const Hero = () => {
               </section>
               <section className="flex gap-5 px-2 bg-gradient-to-br from-yellow-500 to-red-400 text-transparent bg-clip-text">
                 <Link
-                  href={"/"}
+                  href={"/resume"}
                   className="  font-semibold flex gap-2 items-center "
                 >
                   <CgNotes className="text-red-300" />
