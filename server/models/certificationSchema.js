@@ -12,6 +12,7 @@ const certificationSchema = new mongoose.Schema(
     },
     level: {
       type: String,
+      enum: ["basic", "intermediate", "advanced"], // optional but good practice
       required: true,
     },
     skills: {

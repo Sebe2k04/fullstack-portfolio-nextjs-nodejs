@@ -1,6 +1,6 @@
 const Admin = require("../models/adminSchema");
 const bcrypt = require("bcrypt");
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
@@ -15,7 +15,7 @@ const adminLogin = async (req, res) => {
   if (!admin) {
     return res.status(401).json({ message: "Invalid credentials" });
   }
-
+  console.log(admin.password);
   const isMatch = await bcrypt.compare(password, admin.password);
   if (!isMatch) {
     return res.status(400).json({ message: "Invalid credentials" });

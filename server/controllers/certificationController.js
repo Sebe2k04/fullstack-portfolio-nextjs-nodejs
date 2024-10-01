@@ -39,9 +39,6 @@ const updateCertification = async (req, res) => {
     if (!certification) {
       return res.status(404).json({ message: "Certification not found" });
     }
-    console.log(certification.image);
-
-    console.log(req.files.image);
     if (req.file) {
       if (certification.image) {
         const publicId = certification.image.split("/").pop().split(".")[0];
@@ -62,6 +59,7 @@ const updateCertification = async (req, res) => {
     const updatedCertification = await certification.save();
     res.json(updatedCertification);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
@@ -84,11 +82,11 @@ const deleteCertification = async (req, res) => {
 const getCertifications = async (req, res) => {
   const { search, page = 1, limit = 8 } = req.query;
   try {
-    console.log(search, "s", page, limit);
+    console.log(search, "sc", page, limit);
     const query = {};
     if (search) {
       console.log("s");
-      query.title = { $regex: search, $options: "i" };
+      query.name = { $regex: search, $options: "i" };
     }
     const levelOrder = {
       advanced: 1,
@@ -96,14 +94,42 @@ const getCertifications = async (req, res) => {
       basic: 3,
     };
 
-    const certifications = await Certifications.find(query)
-      .sort((a, b) => levelOrder[a.level] - levelOrder[b.level])
-      .skip((page - 1) * limit)
-      .limit(Number(limit));
-    const totalCertifications = await Certifications.countDocuments(query);
+    const skip = (page - 1) * limit;
+
+    const certifications = await Certifications.aggregate([
+      // Match products based on the search query (if any)
+      {
+        $match: {
+          name: { $regex: search, $options: "i" }, // Case-insensitive search by name
+        },
+      },
+      // Add a custom sort field for sorting by 'level'
+      {
+        $addFields: {
+          sortOrder: {
+            $switch: {
+              branches: [
+                { case: { $eq: ["$level", "advanced"] }, then: 1 },
+                { case: { $eq: ["$level", "intermediate"] }, then: 2 },
+                { case: { $eq: ["$level", "basic"] }, then: 3 },
+              ],
+              default: 4,
+            },
+          },
+        },
+      },
+      // Sort by the custom 'sortOrder' field
+      { $sort: { sortOrder: 1 } },
+      // Skip for pagination
+      { $skip: skip },
+      // Limit the number of results for pagination
+      { $limit: limit },
+    ]);
+    const totalCertifications = certifications.length;
     const totalPages = Math.ceil(totalCertifications / limit);
     res.status(200).json({ certifications, totalPages });
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: "Error fetching products", error });
   }
 };

@@ -14,6 +14,7 @@ const authRouter = require("./routes/authRouter");
 const projectRouter = require("./routes/projectRouter");
 const testimonialRouter = require("./routes/testimonialRouter");
 const certificationRouter = require("./routes/certificationRouter");
+const resumeRouter = require("./routes/resumeRouter");
 
 app.use(cors({ origin: process.env.CLIENT_URL, credentials: true }));
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use("/api/auth",authRouter);
 app.use("/api/project",projectRouter);
 app.use("/api/testimonial",testimonialRouter);
 app.use("/api/certification",certificationRouter);
+app.use("/api/resume",resumeRouter);
 
 
 app.listen(port, () => {

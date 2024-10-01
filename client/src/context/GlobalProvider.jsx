@@ -1,4 +1,5 @@
 "use client";
+import Certifications from "@/components/Home/Certifications";
 import React, { createContext, useContext, useState } from "react";
 
 export const GlobalContext = createContext();
@@ -6,6 +7,7 @@ export const GlobalContext = createContext();
 const GlobalProvider = ({ children }) => {
   const [projects, setProjects] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [certifications, setCertifications] = useState([]);
   const [pagination, setPagination] = useState({
     currentPage: 1,
     totalPages: 1,
@@ -16,6 +18,8 @@ const GlobalProvider = ({ children }) => {
       value={{
         projects,
         setProjects,
+        certifications,
+        setCertifications,
         searchTerm,
         setSearchTerm,
         pagination,
