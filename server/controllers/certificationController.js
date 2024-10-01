@@ -80,7 +80,7 @@ const deleteCertification = async (req, res) => {
 };
 
 const getCertifications = async (req, res) => {
-  const { search, page = 1, limit = 8 } = req.query;
+  const { search="", page = 1, limit = 8 } = req.query;
   try {
     console.log(search, "sc", page, limit);
     const query = {};
@@ -94,6 +94,7 @@ const getCertifications = async (req, res) => {
       basic: 3,
     };
 
+    const limits = parseInt(limit)
     const skip = (page - 1) * limit;
 
     const certifications = await Certifications.aggregate([
@@ -123,7 +124,7 @@ const getCertifications = async (req, res) => {
       // Skip for pagination
       { $skip: skip },
       // Limit the number of results for pagination
-      { $limit: limit },
+      { $limit: limits },
     ]);
     const totalCertifications = certifications.length;
     const totalPages = Math.ceil(totalCertifications / limit);

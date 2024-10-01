@@ -30,6 +30,6 @@ const testimonialSchema = new mongoose.Schema(
   }
 );
 
-const Testimonial = new mongoose.model("Testimonial", testimonialSchema);
+const Testimonials = new mongoose.model("Testimonials", testimonialSchema);
 
-module.exports = Testimonial;
+module.exports = Testimonials;

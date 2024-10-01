@@ -1,8 +1,12 @@
-const Testimonial = require("../models/projectSchema");
+const Testimonials = require('../models/testimonialSchema')
+const cloudinary = require("../config/cloudinary");
+
+require("dotenv").config();
 
 const createTestimonial = async (req, res) => {
   const { name, designation, rating, recommendation } = req.body;
 
+  console.log( name, designation, rating, recommendation)
   try {
     let image;
     if (req.file) {
@@ -14,7 +18,7 @@ const createTestimonial = async (req, res) => {
       console.log(result.secure_url);
     }
 
-    const newTestimonial = new Testimonial({
+    const newTestimonial = new Testimonials({
       name,
       designation,
       rating,
@@ -25,6 +29,7 @@ const createTestimonial = async (req, res) => {
     const testimonial = await newTestimonial.save();
     res.status(201).json(testimonial);
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Server Error" });
   }
 };
@@ -32,7 +37,7 @@ const createTestimonial = async (req, res) => {
 const getTestimonials = async (req, res) => {
   const { page = 1, limit = 8 } = req.query;
   try {
-    const testimonials = await Testimonial.find()
+    const testimonials = await Testimonials.find()
       .skip((page - 1) * limit)
       .limit(Number(limit));
     const totalTestimonials = testimonials.length;
@@ -45,7 +50,7 @@ const getTestimonials = async (req, res) => {
 
 const deleteTestimonial = async (req, res) => {
   try {
-    const testimonial = await Testimonial.findByIdAndDelete({
+    const testimonial = await Testimonials.findByIdAndDelete({
       _id: req.params.id,
     });
     if (!testimonial) {

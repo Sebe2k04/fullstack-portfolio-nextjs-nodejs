@@ -1,5 +1,6 @@
 const express = require("express");
 const router = new express.Router();
+const upload = require("../middlewares/multer");
 
 const {
   createTestimonial,
@@ -7,7 +8,7 @@ const {
   deleteTestimonial,
 } = require("../controllers/testimonialController");
 
-router.post("/", createTestimonial);
+router.post("/",  upload.single("image"), createTestimonial);
 
 router.get("/", getTestimonials);
 
