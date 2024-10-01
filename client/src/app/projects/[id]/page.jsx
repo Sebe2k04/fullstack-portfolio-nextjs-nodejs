@@ -129,7 +129,7 @@ export default function Page() {
           </div>
           <div className="py-5">
             <h1 className="text-xl font-semibold ">Description</h1>
-            <p>{project.description}</p>
+            <p className="text-sm text-justify pt-2">{project.description}</p>
           </div>
         </div>
       )}
