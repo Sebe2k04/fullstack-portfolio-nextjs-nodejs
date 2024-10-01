@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BsGlobe2 } from "react-icons/bs";
 import { FaGithub } from "react-icons/fa";
@@ -19,18 +20,40 @@ const ProjectCard = ({ project }) => {
           <h1 className="text-gray-400 text-sm">{project.subtitle}</h1>
         </div>
         <div className="flex gap-2 text-xl">
-            <div className="p-1 bg-gray-300 rounded-full">
-                <BsGlobe2/>
+          {project.liveUrl === "NA" ? (
+            <div className="p-1 bg-gray-300 opacity-20 rounded-full">
+              <BsGlobe2 />
             </div>
-            <div className="p-1 bg-gray-300 rounded-full">
-                <FaGithub/>
+          ) : (
+            <Link
+              href={project.liveUrl}
+              className="p-1 bg-gray-300 rounded-full"
+            >
+              <BsGlobe2 />
+            </Link>
+          )}
+          {project.githubUrl === "NA" ? (
+            <div className="p-1 bg-gray-300 opacity-20 rounded-full">
+              <FaGithub />
             </div>
+          ) : (
+            <Link
+              href={project.githubUrl}
+              className="p-1 bg-gray-300 rounded-full"
+            >
+              <FaGithub />
+            </Link>
+          )}
+
         </div>
       </div>
       <div className="flex justify-center">
-        <div className="bg-gray-200 rounded-t-3xl p-2 px-5 shadow-inner shadow-gray-400">
+        <Link
+          href={`/projects/${project._id}`}
+          className="bg-gray-200 rounded-t-3xl p-2 px-5 shadow-inner shadow-gray-400"
+        >
           <h1 className="text-center text-sm">Explore</h1>
-        </div>
+        </Link>
       </div>
     </div>
   );
