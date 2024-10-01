@@ -8,7 +8,6 @@ import { ToastContainer } from "react-toastify";
 import FooterHandler from "@/components/FooterHandler";
 import GlobalProvider from "@/context/GlobalProvider";
 import "react-toastify/dist/ReactToastify.css";
-import FixedBtn from "@/components/fixedBtn";
 import HireIcon from "@/components/HireIcon";
 
 // const geistSans = localFont({
