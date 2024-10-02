@@ -3,12 +3,15 @@ import { axiosInstance } from "@/utils/axiosConfig";
 import React, { useEffect, useState } from "react";
 import ProjectCard from "../ProjectCard";
 import Link from "next/link";
+import Loader from "../Loader";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProjects = async () => {
+      setLoading(true);
       try {
         const query = new URLSearchParams({
           limit: 2,
@@ -16,6 +19,7 @@ const Projects = () => {
 
         const res = await axiosInstance.get(`/project?${query}`);
         console.log(res.data);
+        setLoading(false);
         setProjects(res.data.projects);
       } catch (error) {
         console.error(error);
@@ -45,19 +49,28 @@ const Projects = () => {
           user experiences.
         </h2>
       </div>
-      <div className="py-10 flex flex-wrap justify-center">
-        {
-          projects.map((project,index)=>{
-            return(
+      {loading ? (
+        <div className="">
+          <Loader/>
+        </div>
+      ) : (
+        <div className="py-10 flex flex-wrap justify-center">
+          {projects.map((project, index) => {
+            return (
               <div key={index}>
-                <ProjectCard project={project}/>
+                <ProjectCard project={project} />
               </div>
-            )
-          })
-        }
-      </div>
+            );
+          })}
+        </div>
+      )}
       <div className="flex justify-center">
-        <Link href={"/projects"} className="px-5 py-1 border-2 shadow-sm rounded-2xl text-sm">Show More</Link>
+        <Link
+          href={"/projects"}
+          className="px-5 py-1 border-2 shadow-sm rounded-2xl text-sm"
+        >
+          Show More
+        </Link>
       </div>
     </div>
   );
