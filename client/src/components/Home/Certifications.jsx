@@ -45,7 +45,7 @@ const Certifications = () => {
           <Loader />
         </div>
       ) : (
-        <div className="py-10 flex flex-wrap justify-center">
+        <div className="py-10 flex flex-wrap gap-8 justify-center">
           {certifications.map((certification, index) => (
             <div key={index}>
               <CertificationCard certification={certification} />

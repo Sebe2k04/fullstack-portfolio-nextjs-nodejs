@@ -54,7 +54,7 @@ const Projects = () => {
           <Loader/>
         </div>
       ) : (
-        <div className="py-10 flex flex-wrap justify-center">
+        <div className="py-10 flex flex-wrap gap-8 justify-center">
           {projects.map((project, index) => {
             return (
               <div key={index}>
