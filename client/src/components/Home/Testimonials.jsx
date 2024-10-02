@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import TestimonialCard from "../TestimonialCard";
 import Marquee from "react-fast-marquee";
+import Loader from "../Loader";
 
 const Testimonials = () => {
   const ratings = [
@@ -30,6 +31,8 @@ const Testimonials = () => {
     },
   ];
 
+  const [loading,setLoading] = useState(true)
+
   const [openTestimonial, setOpenTestimonial] = useState(false);
   const [testimonials, setTestimonials] = useState([]);
   const handleOpen = () => {
@@ -45,9 +48,11 @@ const Testimonials = () => {
 
   useEffect(() => {
     const fetchTestimonial = async () => {
+      setLoading(true);
       try {
         const res = await axiosInstance.get("/testimonial");
         console.log(res.data);
+        setLoading(false);
         setTestimonials(res.data.testimonials);
       } catch {
         console.log(error);
@@ -222,7 +227,13 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        <section className=" overflow-hidden w-full pb-14 text-center py-5 ">
+        {
+          loading ? (
+            <div className="">
+              <Loader/>
+            </div>
+          ) : (
+            <section className=" overflow-hidden w-full pb-14 text-center py-5 ">
           <Marquee pauseOnClick>
             {testimonials &&
               testimonials.map((testimonial, index) => {
@@ -234,6 +245,8 @@ const Testimonials = () => {
               })}
           </Marquee>
         </section>
+          )
+        }
         {/* <div className="pb-10 flex gap-8 overflow-hidden"></div> */}
       </div>
     </div>
