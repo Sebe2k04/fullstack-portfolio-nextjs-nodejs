@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import LinkCard from "../LinkCard";
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaQuoteLeft } from "react-icons/fa";
 import { CgNotes } from "react-icons/cg";
+import { SiGmail } from "react-icons/si";
 
 const slides = [
   "Full stack developer",
@@ -83,7 +84,31 @@ const Hero = () => {
               </section>
             </div>
           </div>
+          <div className="flex lg:hidden justify-center gap-8 pt-10 text-2xl">
+            <Link
+                        target="_blank"
 
+              className="hover:text-orange-400 duration-200"
+              href={"mailto:sebe2k04@gmail.com"}
+            >
+              <SiGmail />
+            </Link>
+            <Link
+            target="_blank"
+              className="hover:text-orange-400 duration-200"
+              href={"https://github.com/Sebe2k04"}
+            >
+              <FaGithub />
+            </Link>
+            <Link
+                        target="_blank"
+
+              className="hover:text-orange-400 duration-200"
+              href={"https://www.linkedin.com/in/sebe2k04/"}
+            >
+              <FaLinkedin />
+            </Link>
+          </div>
           {/* <div className="flex justify-end lg:py-0 py-10">
             <div className="bg-gradient-to-br from-green-400 to-yellow-300 rounded-xl">
               <div className="flex gap-2 font-semibold px-4 pb-1 pt-2 rounded-xl backdrop-blur-2xl border-2 text-white border-red-300">

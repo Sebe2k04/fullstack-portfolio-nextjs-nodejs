@@ -74,18 +74,21 @@ const Contact = () => {
           </div>
           <div className="flex justify-center gap-8 pt-5 text-2xl">
             <Link
+              target="_blank"
               className="hover:text-orange-400 duration-200"
               href={"mailto:sebe2k04@gmail.com"}
             >
               <SiGmail />
             </Link>
             <Link
+              target="_blank"
               className="hover:text-orange-400 duration-200"
               href={"https://github.com/Sebe2k04"}
             >
               <FaGithub />
             </Link>
             <Link
+              target="_blank"
               className="hover:text-orange-400 duration-200"
               href={"https://www.linkedin.com/in/sebe2k04/"}
             >

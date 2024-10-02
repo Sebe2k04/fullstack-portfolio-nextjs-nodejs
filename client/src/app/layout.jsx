@@ -30,6 +30,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+    <head>
+      <link rel="shortcut icon" href="/sebeico.png" type="image/x-icon" />
+    </head>
       <body className="inter">
       {/* <FixedBtn /> */}
         <GlobalProvider>

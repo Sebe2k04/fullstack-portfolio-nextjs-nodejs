@@ -89,9 +89,9 @@ const Navbar = () => {
               <div className="flex  flex-col gap-5  pt-10 text-center">
                 {routes.map((route, index) => {
                   return (
-                    <div onClick={()=>toggleDrawer(false)} className="">
+                    <div key={index} onClick={()=>toggleDrawer(false)} className="">
                       <Link
-                        key={index}
+                        
                         href={route.path}
                         className={" p-2 rounded-md"}
                       >
