@@ -43,6 +43,7 @@ const createProject = async (req, res) => {
       res.status(201).json(savedProject);
     }
   } catch (error) {
+    console.log(error)
     res.status(500).json({ message: "Error creating project", error });
   }
 };
@@ -100,6 +101,8 @@ const updateProject = async (req, res) => {
     const updatedProject = await project.save();
     res.json(updatedProject);
   } catch (error) {
+    console.log(error)
+
     res.status(500).json({ message: "Server Error", error: error.message });
   }
 };
