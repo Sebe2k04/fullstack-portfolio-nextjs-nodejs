@@ -89,21 +89,25 @@ const Navbar = () => {
               <div className="flex  flex-col gap-5  pt-10 text-center">
                 {routes.map((route, index) => {
                   return (
-                    <Link
-                      key={index}
-                      href={route.path}
-                      className={" p-2 rounded-md"}
-                    >
-                      <h1 className="">{route.label}</h1>
-                    </Link>
+                    <div onClick={()=>toggleDrawer(false)} className="">
+                      <Link
+                        key={index}
+                        href={route.path}
+                        className={" p-2 rounded-md"}
+                      >
+                        <h1 className="">{route.label}</h1>
+                      </Link>
+                    </div>
                   );
                 })}
+                <div onClick={()=>toggleDrawer(false)} className="">
                 <Link
                   href={"/#contact"}
                   className="px-5 py-2 rounded-xl text-white bg-black font-semibold"
                 >
                   Hire Me
                 </Link>
+                </div>
               </div>
             </div>
             <div className="bottom flex align-bottom text-black pb-10 justify-center  pt-10">
