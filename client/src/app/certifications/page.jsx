@@ -102,7 +102,7 @@ export default function Page() {
       ) : (
         <div className="py-10">
           {certifications && (
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap gap-8 justify-center">
               {certifications.map((certification, index) => (
                 <div key={index} className="">
                   <CertificationCard certification={certification} />

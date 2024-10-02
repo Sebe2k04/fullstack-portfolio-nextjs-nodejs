@@ -101,7 +101,7 @@ export default function Page() {
       ) : (
         <div className="py-10">
           {projects && (
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap gap-8 justify-center">
               {projects.map((project, index) => (
                 <div key={index} className="">
                   <ProjectCard project={project} />
