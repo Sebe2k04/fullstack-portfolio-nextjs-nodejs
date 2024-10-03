@@ -86,7 +86,7 @@ const Navbar = () => {
                 />
                 <IoSearch className="text-3xl text-zinc-400 ml-[-40px] border-l pl-2 bg-zinc-100/30" />
               </section> */}
-              <div className="flex  flex-col gap-5  pt-10 text-center">
+              <div className="flex  flex-col  pt-10 text-center">
                 {routes.map((route, index) => {
                   return (
                     <div key={index} onClick={()=>toggleDrawer(false)} className="">
