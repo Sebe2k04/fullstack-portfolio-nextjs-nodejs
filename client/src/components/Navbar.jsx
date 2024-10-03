@@ -86,21 +86,21 @@ const Navbar = () => {
                 />
                 <IoSearch className="text-3xl text-zinc-400 ml-[-40px] border-l pl-2 bg-zinc-100/30" />
               </section> */}
-              <div className="flex  flex-col gap-5 pt-10 text-center">
+              <div className="grid pt-10 gap-5 text-center">
                 {routes.map((route, index) => {
                   return (
                     <div key={index} onClick={()=>toggleDrawer(false)} className="">
                       <Link
                         
                         href={route.path}
-                        className={" px-2 rounded-md"}
+                        className={""}
                       >
                         <h1 className="">{route.label}</h1>
                       </Link>
                     </div>
                   );
                 })}
-                <div onClick={()=>toggleDrawer(false)} className="">
+                <div onClick={()=>toggleDrawer(false)} className="pt-5">
                 <Link
                   href={"/#contact"}
                   className="px-5 py-2 rounded-xl text-white bg-black font-semibold"
