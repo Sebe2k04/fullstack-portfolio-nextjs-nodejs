@@ -74,6 +74,7 @@ const Projects = () => {
                 initial={{ opacity: 0, scale: 0.8, y: 10 }}
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ type: "spring", stiffness: 200, damping: 50 , delay:index/10 }}
+                viewport={{once:true}}
                 key={index}
               >
                 <ProjectCard project={project} />
