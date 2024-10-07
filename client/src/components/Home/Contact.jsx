@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import { FaGithub, FaLinkedin, FaStar } from "react-icons/fa";
 import { IoCall, IoMail, IoSend } from "react-icons/io5";
@@ -6,19 +7,24 @@ import { AiFillSafetyCertificate } from "react-icons/ai";
 import Link from "next/link";
 import { SiGmail } from "react-icons/si";
 import { SiGoogledocs } from "react-icons/si";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   return (
     <div className="lg:px-20 px-8 py-10">
       <div className="">
-        <div className="flex justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.4, x: 100 }}
+          whileInView={{ opacity: 1, scale: 1, x: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 50 }}
+          viewport={{ once: true }} className="flex justify-center">
           <h1 className="text-center max-w-[400px] font-semibold text-3xl">
             Have an Awesome Project Idea?{" "}
             <span className="text-orange-400 hello font-normal text-4xl">
               Let&apos;s Discuss
             </span>
           </h1>
-        </div>
+        </motion.div>
         <div className="">
           <div className="py-5 flex justify-center">
             <Link
