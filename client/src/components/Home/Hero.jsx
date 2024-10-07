@@ -7,6 +7,7 @@ import { FaGithub, FaLinkedin, FaQuoteLeft } from "react-icons/fa";
 import { CgNotes } from "react-icons/cg";
 import { SiGmail } from "react-icons/si";
 import { ImQuotesRight } from "react-icons/im";
+import Image from "next/image";
 
 
 const slides = [
@@ -45,11 +46,14 @@ const Hero = () => {
               viewport={{ once: true }}
               className=""
             >
-              <img
-                src="/hero.jpg"
-                alt=""
-                className="w-full mx-auto md:max-w-[500px]"
-              />
+             
+              <Image
+              src="/hero.jpg"
+              width="1000"
+              height="1000"
+              alt=""
+              className="w-full mx-auto md:max-w-[500px]"
+            />
               {/* <div className="flex justify-center ">
                 <div className="px-5 py-2 rounded-xl bg-white shadow-md mt-[-50px] relative z-[10] h-fit">
                   <h1>Certified Developer</h1>
