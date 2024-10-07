@@ -1,20 +1,34 @@
+"use client";
 import React from "react";
 import { IoReader } from "react-icons/io5";
 import { IoLocationSharp } from "react-icons/io5";
 import { HiBuildingOffice2 } from "react-icons/hi2";
 import { MdWork } from "react-icons/md";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
     <div className="lg:px-20 px-8 py-10">
-      <h1 className="font-semibold text-3xl">
+      <motion.h1
+        initial={{ opacity: 0, scale: 0.4, x: 100 }}
+        whileInView={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{ type: "spring", stiffness: 200, damping: 50 }}
+        viewport={{ once: true }}
+        className="font-semibold text-3xl"
+      >
         My{" "}
         <span className="text-4xl hello font-normal text-orange-400">
           Experience
         </span>
-      </h1>
+      </motion.h1>
       <div className="flex flex-col pt-8 lg:px-10 ">
-        <div className="">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.4, y: 100 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ type: "spring", stiffness: 200, damping: 50 }}
+          viewport={{ once: true }}
+          className=""
+        >
           <div className="flex gap-3 md:items-center">
             <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-red-400 text-xl p-2 rounded-full text-white">
               <MdWork className="" />
@@ -38,10 +52,7 @@ const Experience = () => {
               <h2>Remote, TN</h2>
             </div>
           </div>
-        </div>
-        
-
-        
+        </motion.div>
       </div>
     </div>
   );
