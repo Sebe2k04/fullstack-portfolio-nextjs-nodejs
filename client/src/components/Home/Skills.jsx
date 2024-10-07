@@ -158,10 +158,12 @@ const Skills = () => {
                 key={i}
                 className={`${skill.color}`}
               >
-                <div className="w-fit h-fit border border-b-4 text-3xl md:text-5xl rounded-full p-5 ">
+                <div className="w-fit h-fit border border-b-4 text-3xl md:text-5xl rounded-full flex justify-center p-5 ">
                   {skill.icon}
                 </div>
+                <div className="flex justify-center">
                 <h1 className="text-center text-sm pt-2">{skill.name}</h1>
+                </div>
               </motion.div>
             );
           })}
