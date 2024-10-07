@@ -6,6 +6,8 @@ import LinkCard from "../LinkCard";
 import { FaGithub, FaLinkedin, FaQuoteLeft } from "react-icons/fa";
 import { CgNotes } from "react-icons/cg";
 import { SiGmail } from "react-icons/si";
+import { ImQuotesRight } from "react-icons/im";
+
 
 const slides = [
   "Full stack developer",
@@ -26,21 +28,68 @@ const Hero = () => {
     <div className="lg:px-20 px-8 min-h-[85vh] flex flex-col justify-center">
       <main className="grid lg:grid-cols-2">
         <section className="grid lg:grid-cols-5">
-          <div className="h-full hidden lg:flex items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.4, y: -100 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 50 }}
+            viewport={{ once: true }}
+            className="h-full hidden lg:flex items-center"
+          >
             <LinkCard />
-          </div>
+          </motion.div>
           <div className="col-span-4">
-            <img src="/hero.jpg" alt="" className="w-full mx-auto md:max-w-[500px]" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.4, y: 100 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 50 }}
+              viewport={{ once: true }}
+              className=""
+            >
+              <img
+                src="/hero.jpg"
+                alt=""
+                className="w-full mx-auto md:max-w-[500px]"
+              />
+              {/* <div className="flex justify-center ">
+                <div className="px-5 py-2 rounded-xl bg-white shadow-md mt-[-50px] relative z-[10] h-fit">
+                  <h1>Certified Developer</h1>
+                </div>
+              </div> */}
+            </motion.div>
           </div>
         </section>
-        <section className=" flex flex-col justify-center">
+        <section className=" flex flex-col justify-between">
           {/* <div className=""></div> */}
+          <div className="flex justify-end">
+            <div className="flex max-w-[300px]  items-start">
+            <ImQuotesRight className="lg:text-4xl text-xl"/>
+            </div>
+          </div>
           <div className="lg:max-w-[500px]">
-            <h1>Hi There , </h1>
-            <h1 className="lg:text-4xl text-3xl font-semibold ">
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.4, x: 100 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 50 }}
+              viewport={{ once: true }}
+            >
+              Hi There ,{" "}
+            </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.4, x: 100 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 50 }}
+              viewport={{ once: true }}
+              className="lg:text-4xl text-3xl font-semibold "
+            >
               I&apos;m <span className="text-green-400">Sebe</span>
-            </h1>
-            <h3 className="font-semibold text-gray-400 lg:text-xl pt-1">
+            </motion.h1>
+            <motion.h3
+              initial={{ opacity: 0, scale: 0.4, x: 100 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 50 }}
+              viewport={{ once: true }}
+              className="font-semibold text-gray-400 lg:text-xl pt-1"
+            >
               Passionate{" "}
               <motion.span key={activeIndex} className="text-black">
                 {slides[activeIndex].split("").map((el, i) => (
@@ -57,13 +106,30 @@ const Hero = () => {
                   </motion.span>
                 ))}
               </motion.span>
-            </h3>
-            <h6 className="text-justify pt-2">
+            </motion.h3>
+            <motion.h6
+              initial={{ opacity: 0, scale: 0.4, x: 100 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              viewport={{ once: true }}
+              className="text-justify pt-2"
+            >
               From crafting intuitive user interfaces to architecting complex
               backend solutions, my full-stack skills cover the complete
               development cycle for modern web applications.
-            </h6>
-            <div className="flex gap-2 mt-5 items-center border-2 py-4 px-3 border-yellow-200 rounded-3xl backdrop-blur-md w-fit  shadow-red-300 shadow-inner">
+            </motion.h6>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.4, x: 100 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 10,
+                delay: 0.5,
+              }}
+              viewport={{ once: true }}
+              className="flex gap-2 mt-5 items-center border-2 py-4 px-3 border-yellow-200 rounded-3xl backdrop-blur-md w-fit  shadow-red-300 shadow-inner"
+            >
               <section className="">
                 <Link
                   href={"/#contact"}
@@ -82,41 +148,39 @@ const Hero = () => {
                   <h1>Resume</h1>
                 </Link>
               </section>
-            </div>
+            </motion.div>
           </div>
-          <div className="flex lg:hidden justify-center gap-8 pt-10 text-2xl">
+          <div className=""></div>
+          <motion.div
+            initial={{ opacity: 0.5, scale: 0.4, x: 50 }}
+            whileInView={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 50 }}
+            viewport={{ once: true }}
+            className="flex lg:hidden justify-center gap-8 pt-10 text-2xl"
+          >
             <Link
-                        target="_blank"
-
+              target="_blank"
               className="hover:text-orange-400 duration-200"
               href={"mailto:sebe2k04@gmail.com"}
             >
               <SiGmail />
             </Link>
             <Link
-            target="_blank"
+              target="_blank"
               className="hover:text-orange-400 duration-200"
               href={"https://github.com/Sebe2k04"}
             >
               <FaGithub />
             </Link>
             <Link
-                        target="_blank"
-
+              target="_blank"
               className="hover:text-orange-400 duration-200"
               href={"https://www.linkedin.com/in/sebe2k04/"}
             >
               <FaLinkedin />
             </Link>
-          </div>
-          {/* <div className="flex justify-end lg:py-0 py-10">
-            <div className="bg-gradient-to-br from-green-400 to-yellow-300 rounded-xl">
-              <div className="flex gap-2 font-semibold px-4 pb-1 pt-2 rounded-xl backdrop-blur-2xl border-2 text-white border-red-300">
-                <FaQuoteLeft />
-                <h1>Turning Innovation into Reality - Genrio !</h1>
-              </div>
-            </div>
-          </div> */}
+          </motion.div>
+
         </section>
       </main>
     </div>
