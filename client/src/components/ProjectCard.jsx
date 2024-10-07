@@ -6,7 +6,9 @@ import { FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="rounded-xl border-2 backdrop-blur-md max-w-[400px] pt-5 px-5">
+    <div
+
+    viewport={{ once: true }} className="rounded-xl border-2 backdrop-blur-md max-w-[400px] pt-5 px-5">
       <Image
         src={project.image}
         width="500"
