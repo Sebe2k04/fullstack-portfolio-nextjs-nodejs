@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import TestimonialCard from "../TestimonialCard";
 import Marquee from "react-fast-marquee";
 import Loader from "../Loader";
+import { motion } from "framer-motion";
 
 const Testimonials = () => {
   const ratings = [
@@ -31,7 +32,7 @@ const Testimonials = () => {
     },
   ];
 
-  const [loading,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const [openTestimonial, setOpenTestimonial] = useState(false);
   const [testimonials, setTestimonials] = useState([]);
@@ -198,7 +199,13 @@ const Testimonials = () => {
       <div className="bg-gradient-to-br from-yellow-100 to-red-100 rounded-3xl mt-[-35px]">
         <div className="lg:px-20 px-8  py-10 ">
           <div className="flex justify-center">
-            <div className="">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.4, x: 50 }}
+              whileInView={{ opacity: 1, scale: 1, x: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 50 }}
+              viewport={{ once: true }}
+              className=""
+            >
               <h1 className="lg:text-3xl text-2xl text-center font-semibold">
                 Testimonials that
               </h1>
@@ -208,7 +215,7 @@ const Testimonials = () => {
                   My Results
                 </span>
               </h3>
-            </div>
+            </motion.div>
           </div>
           <div className="flex justify-center py-5">
             <h3 className="lg:text-center text-justify max-w-[700px]">
@@ -227,26 +234,24 @@ const Testimonials = () => {
             </div>
           </div>
         </div>
-        {
-          loading ? (
-            <div className="">
-              <Loader/>
-            </div>
-          ) : (
-            <section className=" overflow-hidden w-full pb-14 text-center py-5 ">
-          <Marquee pauseOnClick>
-            {testimonials &&
-              testimonials.map((testimonial, index) => {
-                return (
-                  <div key={index} className="px-8 flex items-start h-full">
-                    <TestimonialCard testimonial={testimonial} />
-                  </div>
-                );
-              })}
-          </Marquee>
-        </section>
-          )
-        }
+        {loading ? (
+          <div className="">
+            <Loader />
+          </div>
+        ) : (
+          <section className=" overflow-hidden w-full pb-14 text-center py-5 ">
+            <Marquee pauseOnClick>
+              {testimonials &&
+                testimonials.map((testimonial, index) => {
+                  return (
+                    <div key={index} className="px-8 flex items-start h-full">
+                      <TestimonialCard testimonial={testimonial} />
+                    </div>
+                  );
+                })}
+            </Marquee>
+          </section>
+        )}
         {/* <div className="pb-10 flex gap-8 overflow-hidden"></div> */}
       </div>
     </div>
