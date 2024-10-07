@@ -20,7 +20,7 @@ const Education = () => {
       </motion.h1>
       <div className="flex flex-col pt-8 lg:px-10 ">
         <motion.div
-            initial={{ opacity: 0, scale: 0.4, y: 100 }}
+            initial={{ opacity: 0, scale: 1, y: 100 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 50 }}
             viewport={{ once: true }} className="">
@@ -41,7 +41,7 @@ const Education = () => {
           </div>
         </motion.div>
         <motion.div
-            initial={{ opacity: 0, scale: 0.4, y: 100 }}
+            initial={{ opacity: 0, scale: 1, y: 100 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 50 , delay:0.3 }}
             viewport={{ once: true }} className="">
@@ -62,9 +62,9 @@ const Education = () => {
           </div>
         </motion.div>
         <motion.div
-            initial={{ opacity: 0, scale: 0.4, y: 100 }}
+            initial={{ opacity: 0, scale: 1, y: 100 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 50,delay:0.6 }}
+            transition={{ type: "spring", stiffness: 200, damping: 50,delay:0.5 }}
             viewport={{ once: true }} className="">
           <div className="flex gap-3 md:items-center">
             <div className="bg-gradient-to-br h-fit w-fit from-yellow-500 to-red-400 text-xl p-2 rounded-full text-white">

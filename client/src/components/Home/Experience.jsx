@@ -23,7 +23,7 @@ const Experience = () => {
       </motion.h1>
       <div className="flex flex-col pt-8 lg:px-10 ">
         <motion.div
-          initial={{ opacity: 0, scale: 0.4, y: 100 }}
+          initial={{ opacity: 0, scale: 1, y: 100 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 50 }}
           viewport={{ once: true }}

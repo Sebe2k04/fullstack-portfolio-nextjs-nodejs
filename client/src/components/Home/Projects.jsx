@@ -86,7 +86,7 @@ const Projects = () => {
       <div className="flex justify-center">
         <Link
           href={"/projects"}
-          className="px-5 py-1 border-2 shadow-sm rounded-2xl text-sm"
+          className="px-5 py-1 border-2 shadow-sm rounded-2xl text-sm hover:bg-blue-gray-600 hover:text-white duration-200"
         >
           Show More
         </Link>
