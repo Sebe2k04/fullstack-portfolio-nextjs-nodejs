@@ -25,7 +25,7 @@ import Pagination from "@/components/Pagination";
 import Loader from "@/components/Loader";
 import Projects from "@/components/Home/Projects";
 import ProjectCard from "@/components/ProjectCard";
-
+import { motion } from "framer-motion";
 export default function Page() {
   const {
     projects,
@@ -36,13 +36,11 @@ export default function Page() {
     setPagination,
   } = useGlobalContext();
 
-
   const [modified, setModified] = useState(false);
 
   const [PaginatedValue, SetPaginatedValue] = useState(1);
 
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     if (PaginatedValue == pagination.totalPages) {
@@ -81,15 +79,18 @@ export default function Page() {
   }, [memoizedData]);
   return (
     <div className="lg:px-20 px-8 py-8 lg:pt-8 pt-5">
-      
-
       <div className="lg:flex justify-between items-center pb-5 ">
         <div className="flex gap-2 items-center">
           <Link href={"/"}>
             <IoIosArrowBack />
           </Link>
 
-          <h1 className="text-2xl font-semibold">All <span className="font-normal text-3xl hello text-orange-400">Projects</span></h1>
+          <h1 className="text-2xl font-semibold">
+            All{" "}
+            <span className="font-normal text-3xl hello text-orange-400">
+              Projects
+            </span>
+          </h1>
         </div>
         <div className="flex justify-center lg:block pt-5 lg:pt-0">
           <Search />
@@ -103,9 +104,20 @@ export default function Page() {
           {projects && (
             <div className="flex flex-wrap gap-8 justify-center">
               {projects.map((project, index) => (
-                <div key={index} className="">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 50,
+                    delay: index / 10,
+                  }}
+                  viewport={{ once: true }}
+                  key={index}
+                >
                   <ProjectCard project={project} />
-                </div>
+                </motion.div>
               ))}
             </div>
           )}

@@ -26,6 +26,7 @@ import Loader from "@/components/Loader";
 import Projects from "@/components/Home/Projects";
 import ProjectCard from "@/components/ProjectCard";
 import CertificationCard from "@/components/CertificationCard";
+import { motion } from "framer-motion";
 
 export default function Page() {
   const {
