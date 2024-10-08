@@ -1,29 +1,13 @@
 "use client";
 import Search from "@/components/Search";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { FaCirclePlus } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { toast } from "react-toastify";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { TiCancel } from "react-icons/ti";
 import { axiosInstance } from "@/utils/axiosConfig";
 import { useGlobalContext } from "@/context/GlobalProvider";
-import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { GiShoppingCart } from "react-icons/gi";
-import { BiSolidOffer } from "react-icons/bi";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 import Pagination from "@/components/Pagination";
 import Loader from "@/components/Loader";
-import Projects from "@/components/Home/Projects";
 import ProjectCard from "@/components/ProjectCard";
 import { motion } from "framer-motion";
 export default function Page() {
