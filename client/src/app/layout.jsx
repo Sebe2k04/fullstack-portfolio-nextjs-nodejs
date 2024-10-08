@@ -33,6 +33,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="/sebeico.png" type="image/x-icon" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-TWWC4KFJPK"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-TWWC4KFJPK');
+        </script>
       </head>
       <body className="inter">
         <SEO
