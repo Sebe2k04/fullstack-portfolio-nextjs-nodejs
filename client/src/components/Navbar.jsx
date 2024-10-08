@@ -21,7 +21,7 @@ const Navbar = () => {
     },
     {
       label: "Projects",
-      path: "/#projects",
+      path: "/projects",
     },
     {
       label: "Experience",
@@ -44,7 +44,7 @@ const Navbar = () => {
           </section>
           <section className="lg:flex hidden gap-8 font-semibold  rounded-2xl">
             {routes.map((route, index) => (
-              <Link key={index} href={route.path}>
+              <Link key={index} className="hover:opacity-75 hover:tracking-wide duration-200" href={route.path}>
                 {route.label}
               </Link>
             ))}

@@ -28,6 +28,10 @@ body{
 
 }
 
+/* .child {
+  flex: 1 0 40%; 
+} */
+
 .animate-round{
   animation: spin 4s linear infinite;
 
