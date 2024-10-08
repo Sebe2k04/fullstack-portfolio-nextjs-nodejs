@@ -10,6 +10,7 @@ import GlobalProvider from "@/context/GlobalProvider";
 import "react-toastify/dist/ReactToastify.css";
 import HireIcon from "@/components/HireIcon";
 import SEO from "@/components/seo/SEO";
+import Script from "next/script";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -33,16 +34,25 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="shortcut icon" href="/sebeico.png" type="image/x-icon" />
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-TWWC4KFJPK"
-        ></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'G-TWWC4KFJPK');
-        </script>
+         {/* Google Analytics */}
+         <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-TWWC4KFJPK`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-TWWC4KFJPK', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </head>
       <body className="inter">
         <SEO
