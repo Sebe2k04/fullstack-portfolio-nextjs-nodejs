@@ -1,30 +1,13 @@
 "use client";
 import Search from "@/components/Search";
-import {
-  Button,
-  Dialog,
-  DialogHeader,
-  DialogBody,
-  DialogFooter,
-} from "@material-tailwind/react";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { FaCirclePlus } from "react-icons/fa6";
 import { IoIosArrowBack } from "react-icons/io";
 import { toast } from "react-toastify";
-import { RiDeleteBin5Line } from "react-icons/ri";
-import { TiCancel } from "react-icons/ti";
 import { axiosInstance } from "@/utils/axiosConfig";
 import { useGlobalContext } from "@/context/GlobalProvider";
-import { SiHomeassistantcommunitystore } from "react-icons/si";
-import { GiShoppingCart } from "react-icons/gi";
-import { BiSolidOffer } from "react-icons/bi";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
 import Pagination from "@/components/Pagination";
 import Loader from "@/components/Loader";
-import Projects from "@/components/Home/Projects";
-import ProjectCard from "@/components/ProjectCard";
 import CertificationCard from "@/components/CertificationCard";
 import { motion } from "framer-motion";
 
@@ -38,13 +21,11 @@ export default function Page() {
     setPagination,
   } = useGlobalContext();
 
-
   const [modified, setModified] = useState(false);
 
   const [PaginatedValue, SetPaginatedValue] = useState(1);
 
   const [loading, setLoading] = useState(true);
-
 
   useEffect(() => {
     if (PaginatedValue == pagination.totalPages) {
@@ -83,15 +64,18 @@ export default function Page() {
   }, [memoizedData]);
   return (
     <div className="lg:px-20 px-8 py-8 lg:pt-8 pt-5">
-      
-
       <div className="lg:flex justify-between items-center pb-5 ">
         <div className="flex gap-2 items-center">
           <Link href={"/"}>
             <IoIosArrowBack />
           </Link>
 
-          <h1 className="text-2xl font-semibold">All <span className="font-normal text-3xl hello text-orange-400">Certifications</span></h1>
+          <h1 className="text-2xl font-semibold">
+            All{" "}
+            <span className="font-normal text-3xl hello text-orange-400">
+              Certifications
+            </span>
+          </h1>
         </div>
         <div className="flex justify-center lg:block pt-5 lg:pt-0">
           <Search />
@@ -105,9 +89,20 @@ export default function Page() {
           {certifications && (
             <div className="flex flex-wrap gap-8 justify-center">
               {certifications.map((certification, index) => (
-                <div key={index} className="">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8, y: 10 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 200,
+                    damping: 50,
+                    delay: index / 10,
+                  }}
+                  viewport={{ once: true }}
+                  key={index}
+                >
                   <CertificationCard certification={certification} />
-                </div>
+                </motion.div>
               ))}
             </div>
           )}
