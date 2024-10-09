@@ -169,7 +169,7 @@ then create new workspace
 then provide url backend url with respective route
 for example : if you running in localhost 5000
 
-http://localhost:5000/api/auth/admin/signup
+http://localhost:5555/api/auth/admin/signup
 
 <!-- <img src="./readme-assets/postman.png" alt="" /> -->
 
