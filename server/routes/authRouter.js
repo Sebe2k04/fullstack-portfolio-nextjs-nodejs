@@ -12,6 +12,6 @@ router.post("/admin/logout", adminLogout);
 
 //create admin
 
-router.post("/admin/signup", adminSignup);
+// router.post("/admin/signup", adminSignup);
 
 module.exports = router;
