@@ -65,7 +65,7 @@ const Navbar = () => {
       <div className="pt-[120px]"></div>
       <div className="bg-white">
         <Drawer open={open} onClose={() => toggleDrawer(false)}>
-          <section className="flex flex-col justify-between w-full min-w-[250px] min-h-[100vh] px-10">
+          <section className="flex flex-col justify-between w-full min-w-[250px] max-h-[100vh] px-10">
             <div className="">
               <div className="flex justify-end pt-10">
                 <IoMdClose
