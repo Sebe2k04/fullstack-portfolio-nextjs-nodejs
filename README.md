@@ -1,7 +1,7 @@
 ﻿# Genkart-Ecommerce
 
 
-<!-- <img src="./readme-assets/postman.png" alt="" /> -->
+<img src="./readme-assets/portfolio.png" alt="" />
 
 
 
@@ -171,7 +171,7 @@ for example : if you running in localhost 5000
 
 http://localhost:5555/api/auth/admin/signup
 
-<!-- <img src="./readme-assets/postman.png" alt="" /> -->
+<img src="./readme-assets/postman.png" alt="" />
 
 after that you got a response similar like above image
 
