@@ -3,6 +3,8 @@
 
 <img src="./readme-assets/portfolio.png" alt="" />
 
+<img src="./readme-assets/adminsc.png" alt="" />
+
 
 
 Genkart is a sophisticated portfolio platform designed to demonstrate a wide range of web development skills. Unlike traditional portfolio sites, It provides dynamic content for projects , certificartions , testimonials , resume with admin dashboard and robust backend functionality. The project is built using cutting-edge technologies and frameworks to ensure scalability, performance, and maintainability.
