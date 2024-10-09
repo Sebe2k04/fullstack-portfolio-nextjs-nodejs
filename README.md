@@ -1,4 +1,4 @@
-﻿# Genkart-Ecommerce
+﻿# FullStack Portfolio
 
 
 <img src="./readme-assets/portfolio.png" alt="" />
@@ -7,7 +7,7 @@
 
 
 
-Genkart is a sophisticated portfolio platform designed to demonstrate a wide range of web development skills. Unlike traditional portfolio sites, It provides dynamic content for projects , certificartions , testimonials , resume with admin dashboard and robust backend functionality. The project is built using cutting-edge technologies and frameworks to ensure scalability, performance, and maintainability.
+Sebe's portfolio is a sophisticated portfolio platform designed to demonstrate a wide range of web development skills. Unlike traditional portfolio sites, It provides dynamic content for projects , certificartions , testimonials , resume with admin dashboard and robust backend functionality. The project is built using cutting-edge technologies and frameworks to ensure scalability, performance, and maintainability.
 
 ### Tech Stack Overview:
 
@@ -78,7 +78,7 @@ create a folder and open in visual studio code
 open new terminal in vs code then run below command
 
 ```bash
-git clone https://github.com/Sebe2k04/Genkart-Next-Node-Ecommerce-v2.git ./
+git clone https://github.com/Sebe2k04/fullstack-portfolio-nextjs-nodejs.git
 ```
 
 then provide env files provided below
@@ -127,7 +127,7 @@ JWT_EXPIRES_IN="1d"
 
 ### how to run it
 
-note : initially the website will be blank because no user , admin or products are not in you database
+note : initially the website will be blank because no admin or projects , certifications , resume are not in you database
 
 create two terminals in vs code
 
