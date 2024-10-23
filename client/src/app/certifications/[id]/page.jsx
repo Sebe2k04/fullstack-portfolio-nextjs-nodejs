@@ -3,6 +3,7 @@
 import Loader from "@/components/Loader";
 import { axiosInstance } from "@/utils/axiosConfig";
 import Image from "next/image";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BsGlobe2 } from "react-icons/bs";
