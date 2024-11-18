@@ -162,14 +162,14 @@ then uncomment the admin signup route
 
 --
 
-note i didn't provide admin signup ui , due to secure concerns . after create admin comment the respective route in server auth route - (admin signup)
+note i didn't provide admin signup ui , due to security concerns . after create admin ,comment the respective route in server auth route - (admin signup)
 
 open postman
 
 then create new workspace
 
 then provide url backend url with respective route
-for example : if you running in localhost 5000
+for example : if you running in localhost 5555
 
 http://localhost:5555/api/auth/admin/signup
 
