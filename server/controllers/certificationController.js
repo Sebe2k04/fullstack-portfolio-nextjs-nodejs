@@ -98,13 +98,11 @@ const getCertifications = async (req, res) => {
     const skip = (page - 1) * limit;
 
     const certifications = await Certifications.aggregate([
-      // Match products based on the search query (if any)
       {
         $match: {
-          name: { $regex: search, $options: "i" }, // Case-insensitive search by name
+          name: { $regex: search, $options: "i" },
         },
       },
-      // Add a custom sort field for sorting by 'level'
       {
         $addFields: {
           sortOrder: {
@@ -119,11 +117,8 @@ const getCertifications = async (req, res) => {
           },
         },
       },
-      // Sort by the custom 'sortOrder' field
       { $sort: { sortOrder: 1 } },
-      // Skip for pagination
       { $skip: skip },
-      // Limit the number of results for pagination
       { $limit: limits },
     ]);
     const totalCertifications = certifications.length;

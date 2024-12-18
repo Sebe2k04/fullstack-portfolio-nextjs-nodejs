@@ -1,5 +1,4 @@
 "use client";
-import Certifications from "@/components/Home/Certifications";
 import React, { createContext, useContext, useState } from "react";
 
 export const GlobalContext = createContext();
