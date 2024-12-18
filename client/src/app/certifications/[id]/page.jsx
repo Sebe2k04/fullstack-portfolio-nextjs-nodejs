@@ -72,7 +72,7 @@ export default function Page() {
                 ) : (
                   <Link
                   target="_blank"
-                    href={project.liveUrl}
+                    href={certification.url}
                     className="flex items-center gap-2 bg-gray-200 rounded-xl px-5 py-2"
                   >
                     <BsGlobe2 />
