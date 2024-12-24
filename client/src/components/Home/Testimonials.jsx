@@ -221,7 +221,7 @@ const Testimonials = () => {
             <h3 className="lg:text-center text-justify max-w-[700px]">
               Testimonials that endorses my services and work based on every
               project by performing collaborative work on various fields ,
-              Pleade describe your thoughts about me in the blow section . thank
+              Please describe your thoughts about me in the blow section . thank
               you !
             </h3>
           </div>
