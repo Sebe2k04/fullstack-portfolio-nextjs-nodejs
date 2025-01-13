@@ -36,7 +36,7 @@ const About = () => {
               transition={{ type: "spring", stiffness: 200, damping: 100 }}
               className="text-justify "
             >
-              I am a Computer Science Enginnering graduate with expertise in
+              I am a Computer Science Engineering graduate who expertise in
               fullstack web development, specializing in the MERN stack
               (MongoDB, Express, React, Node.js). My skills include building
               dynamic, responsive web applications, integrating both frontend
