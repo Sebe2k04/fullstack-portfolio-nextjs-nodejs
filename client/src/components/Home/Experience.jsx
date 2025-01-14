@@ -35,7 +35,7 @@ const Experience = () => {
             </div>
             <div className="md:flex justify-between w-full items-center">
               <h1 className="font-semibold text-xl">
-                Full Stack Developer Intern
+                Full Stack Developer - freelance
               </h1>
               <h1 className="text-gray-400">Apr 2024 - Current</h1>
             </div>
