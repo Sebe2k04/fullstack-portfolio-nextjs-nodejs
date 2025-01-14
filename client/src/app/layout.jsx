@@ -24,7 +24,7 @@ import Script from "next/script";
 // });
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
-  title: "Sebe S | Software Engineer | Portfolio",
+  title: "Sebe Saravanan | Software Engineer | Portfolio",
   description:
     "a Passionate web developer and Tech Enthusiast who interest on coding and eager to learn develop Web Applications and Software using Javascript programming language . I'm a fresher and I can adapt various tech environments and perform collaborative works and scalable projects",
   keywords:
@@ -32,10 +32,10 @@ export const metadata = {
   url: process.env.NEXT_PUBLIC_CLIENT_URL,
   canonical: process.env.NEXT_PUBLIC_CLIENT_URL,
   authors: [
-    { name: "Sebe S", url: process.env.NEXT_PUBLIC_CLIENT_URL }
+    { name: "Sebe", url: process.env.NEXT_PUBLIC_CLIENT_URL }
   ],
   openGraph: {
-    title: "Sebe S | Software Engineer | Portfolio",
+    title: "Sebe Saravanan | Software Engineer | Portfolio",
     description:
       "a Passionate web developer and Tech Enthusiast who interest on coding and eager to learn develop Web Applications and Software using Javascript programming language . I'm a fresher and I can adapt various tech environments and perform collaborative works and scalable projects",
     url: process.env.NEXT_PUBLIC_CLIENT_URL,
