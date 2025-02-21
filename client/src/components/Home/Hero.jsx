@@ -49,8 +49,8 @@ const Hero = () => {
              
               <Image
               src="/hero.jpg"
-              width="1000"
-              height="1000"
+              width="600"
+              height="600"
               alt=""
               priority
               className="w-full mx-auto md:max-w-[500px]"
