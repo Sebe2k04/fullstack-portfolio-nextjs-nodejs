@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
@@ -11,9 +12,13 @@ const HireIcon = () => {
         ""
       ) : (
         <div className="fixed z-[100] lg:bottom-[30px] bottom-[20px] right-[10px]  lg:right-[50px] lg:scale-75 scale-50">
-          <img
+          <Image
+
             src="/crtxt.png"
             alt=""
+            width={100}
+            height={100}
+            priority
             className="w-[145px] animate-round relative z-[50]"
           />
 
