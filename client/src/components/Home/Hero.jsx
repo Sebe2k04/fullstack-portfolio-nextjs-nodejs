@@ -52,6 +52,7 @@ const Hero = () => {
               width="1000"
               height="1000"
               alt=""
+              priority
               className="w-full mx-auto md:max-w-[500px]"
             />
               {/* <div className="flex justify-center ">

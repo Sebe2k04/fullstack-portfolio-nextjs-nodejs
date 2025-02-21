@@ -33,10 +33,8 @@ export default function Page() {
   const [provider, setProvider] = useState("");
   const [skills, setSkills] = useState([]);
   const [tech, setTech] = useState("");
-
   const [level, setLevel] = useState("basic");
   const [url, setUrl] = useState("");
-
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -54,7 +52,6 @@ export default function Page() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     const formdata = new FormData();
     formdata.append("name", name);
     formdata.append("provider", provider);
