@@ -53,7 +53,6 @@ const Hero = () => {
               height="600"
               alt=""
               priority
-              placeholder="blur"
               quality={80}
               className="w-full mx-auto md:max-w-[500px]"
             />
